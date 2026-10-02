@@ -1,11 +1,11 @@
-species	source	note
-Salminus brasiliensis	Rosso et al. 2012, Mol Ecol Resour 12:999-1011	Over 3% between southern populations and the rest of the range.
-Phalloceros harpagos	Pereira et al. 2013, BMC Genetics 14:20, Table 3	1.7 to 2.2% within the species in the Upper Paraná.
-Astyanax laticeps	Integrative diagnosis of the Psalidodon scabripinnis complex, Neotropical Ichthyology	Southern barcodes of the complex support splitting P. laticeps. One of its BINs is the mixed BOLD:AAC5910. Its second own BIN, BOLD:AAB3435, also holds a Deuterodon langei record, which fits the 17% distance better than a cryptic Astyanax does.
-Phalloceros titthos		Its main BIN also holds one P. harpagos record.
-Synbranchus marmoratus	Pereira et al. 2013, Table 3; Rosso et al. 2012	2.9 to 8.0%, a known species complex.
-Piabina argentea	Pereira et al. 2013, Table 3	1.9 to 5.6%, 6 subclusters in the Upper Paraná.
-Pimelodus maculatus	Biology 2024, 13:162, doi:10.3390/biology13030162	Several MOTUs across basins.
-Apareiodon affinis	PMC6726146	Two genetic groups and an undescribed species.
-Rhamdia quelen	Ribolli et al. 2021, Genet Mol Biol (PMC8276235)	Ribolli et al. work on Rhamdia lineages with BINs on SC material; either the vouchers are R. voulezi and R. branneri, or the three names do not separate in COI.
-Corydoras paleatus	Rosso et al. 2012	Rosso et al. report over 3% between southern C. paleatus and the rest of the range, so these records may be a lineage rather than a misidentification.
+species	source	note	note_pt
+Salminus brasiliensis	Rosso et al. 2012, Mol Ecol Resour 12:999-1011	Over 3% between southern populations and the rest of the range.	Mais de 3% entre as populações do Sul e o resto da distribuição.
+Phalloceros harpagos	Pereira et al. 2013, BMC Genetics 14:20, Table 3	1.7 to 2.2% within the species in the Upper Paraná.	De 1,7 a 2,2% dentro da espécie no Alto Paraná.
+Astyanax laticeps	Integrative diagnosis of the Psalidodon scabripinnis complex, Neotropical Ichthyology	Southern barcodes of the complex do support splitting P. laticeps, but a 17% gap with a Deuterodon record in the same BIN fits misidentified vouchers better than a cryptic Astyanax.	Os códigos de barras do complexo no Sul apoiam a divisão de P. laticeps, mas 17% de distância com um registro de Deuterodon no mesmo BIN combina mais com vouchers mal identificados do que com um Astyanax críptico.
+Phalloceros titthos		Its main BIN also holds one P. harpagos record.	O BIN principal também tem um registro de P. harpagos.
+Synbranchus marmoratus	Pereira et al. 2013, Table 3; Rosso et al. 2012	2.9 to 8.0%, a known species complex.	De 2,9 a 8,0%, um complexo de espécies conhecido.
+Piabina argentea	Pereira et al. 2013, Table 3	1.9 to 5.6%, 6 subclusters in the Upper Paraná.	De 1,9 a 5,6%, 6 subgrupos no Alto Paraná.
+Pimelodus maculatus	Biology 2024, 13:162, doi:10.3390/biology13030162	Several MOTUs across basins.	Vários MOTUs entre bacias.
+Apareiodon affinis	PMC6726146	Two genetic groups and an undescribed species.	Dois grupos genéticos e uma espécie não descrita.
+Rhamdia quelen	Ribolli et al. 2021, Genet Mol Biol (PMC8276235)	Ribolli et al. work on Rhamdia lineages with BINs on SC material; either the vouchers are R. voulezi and R. branneri, or the three names do not separate in COI.	Ribolli et al. estudam linhagens de Rhamdia com BINs em material de SC; ou os vouchers são R. voulezi e R. branneri, ou os três nomes não se separam no COI.
+Corydoras paleatus	Rosso et al. 2012	Rosso et al. report over 3% between southern C. paleatus and the rest of the range, so these records may be a lineage rather than a misidentification.	Rosso et al. relatam mais de 3% entre C. paleatus do Sul e o resto da distribuição, então estes registros podem ser uma linhagem e não um erro de identificação.
