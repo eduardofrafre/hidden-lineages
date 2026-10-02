@@ -21,6 +21,7 @@ scripts/build_asap.sh        # clones the MNHN C source via iTaxoTools/ASAPy, bu
 cd scripts
 python3 asap_input.py        # one aligned FASTA per split species, in data/asap
 python3 asap.py              # ASAP on each; where the BIN partition ranks and its p-value
+python3 sheet.py Teleostei   # the candidate sheet, candidates-teleostei.md
 ```
 
 ASAP's top-ranked partition is not always the real one: with one or two sequences on
