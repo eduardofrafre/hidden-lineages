@@ -129,6 +129,11 @@ TEXT = {
                     "answer helps decide what to examine next. A candidate that holds up could become a "
                     "co-authored description.",
         "wanted_mail": "Write about Hidden Lineages",
+        "give_k": "Support", "give_h": "Free, and staying free.",
+        "give_p": "This page and the candidate list are free and stay free. A donation pays for hosting, "
+                  "data and the hours the insect review still needs.",
+        "give_link": "Donate by PayPal", "give_qr": "scan to donate",
+        "give_alt": "QR code for the PayPal donation page",
         "data": "Data: public records from <a class=\"ln\" href=\"https://boldsystems.org\" target=\"_blank\" "
                 "rel=\"noopener\">BOLD Systems</a>, downloaded {downloaded}. Species delimitation with ASAP "
                 "(Puillandre et al. 2021). State outlines from IBGE. Generated {today}.",
@@ -216,6 +221,11 @@ TEXT = {
                     "de uma linha ajuda a decidir o que examinar primeiro. Uma candidata que se sustente pode "
                     "virar uma descrição em coautoria.",
         "wanted_mail": "Escrever sobre Linhagens Ocultas",
+        "give_k": "Apoiar", "give_h": "Gratuito, e continua assim.",
+        "give_p": "Esta página e a lista de candidatas são gratuitas e continuam gratuitas. Uma doação paga "
+                  "hospedagem, dados e as horas que a revisão dos insetos ainda pede.",
+        "give_link": "Doar pelo PayPal", "give_qr": "aponte a câmera para doar",
+        "give_alt": "QR code da página de doação no PayPal",
         "data": "Dados: registros públicos do <a class=\"ln\" href=\"https://boldsystems.org\" target=\"_blank\" "
                 "rel=\"noopener\">BOLD Systems</a>, baixados em {downloaded}. Delimitação de espécies com o ASAP "
                 "(Puillandre et al. 2021). Contornos dos estados do IBGE. Gerado em {today}.",
@@ -328,6 +338,13 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .wanted .links { padding: 0 14px 16px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
 .source { color: var(--ink-3); max-width: 52rem; margin-top: 28px; }
+.give { display: grid; grid-template-columns: 15rem minmax(0, var(--measure)) auto; gap: 24px 48px; align-items: start; }
+.give > div { grid-column: 2; }
+.give > div > p { color: var(--ink-2); text-wrap: pretty; }
+.qr { display: block; width: 132px; border: 1px solid var(--line-strong); padding: 8px; background: var(--raised); transition: border-color .2s; }
+.qr:hover { border-color: var(--voice); }
+.qr img { width: 100%; height: auto; image-rendering: pixelated; }
+.qr figcaption { margin-top: 6px; text-align: center; }
 .hub { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; padding-block: clamp(56px, 9vh, 96px); border-bottom: 1px solid var(--line); }
 .hub h2 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.02em; max-width: 22ch; }
 .colophon { display: flex; justify-content: space-between; gap: 12px 24px; padding-block: 24px 40px; flex-wrap: wrap; }
@@ -344,6 +361,8 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   .pipeline li:last-child { border-bottom: 0; }
   .pipeline li:not(:last-child)::after { content: "v"; right: auto; left: 16px; top: auto; bottom: -11px; }
   .limits { grid-template-columns: 1fr; }
+  .give { grid-template-columns: 1fr; }
+  .give > div { grid-column: 1; }
   .label dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); column-gap: 20px; }
 }
 @media (max-width: 560px) {
@@ -391,6 +410,12 @@ def mini(coords_a, coords_b, alt):
     b = "".join(f'<circle class="pb" cx="{x:.1f}" cy="{y:.1f}" r="5.5"/>' for x, y in (xy(*s) for s in sorted({site(c) for c in coords_b})))
     return (f'<svg viewBox="0 0 {w:.0f} {h:.0f}" width="{w:.0f}" height="{h:.0f}" role="img" aria-label="{escape(alt)}">'
             f'<use href="#states"/>{a}{b}</svg>')
+
+
+# Shared with the other sites under eduardofrafre.com: the root follows the
+# browser language, and the icon is this page's mark in the family palette.
+LANG_SCRIPT = '<script>\n// The root follows the browser\'s language until a visitor picks one with the\n// EN / PT switch. The pick is a cookie on eduardofrafre.com, so it carries over\n// to every subdomain.\n(function () {\n  var host = location.hostname, domain = /(^|\\.)eduardofrafre\\.com$/.test(host) ? "; Domain=eduardofrafre.com" : "";\n  document.addEventListener("click", function (e) {\n    var a = e.target.closest && e.target.closest("a[hreflang]");\n    if (!a || a.host !== location.host) return;\n    var pick = /^pt/i.test(a.hreflang) ? "pt" : "en";\n    document.cookie = "lang=" + pick + domain + "; Path=/; Max-Age=31536000; SameSite=Lax";\n  });\n  if (/^\\/pt-br(\\/|$)/.test(location.pathname)) return;\n  var m = document.cookie.match(/(?:^|; )lang=(en|pt)/), lang = m && m[1];\n  if (!lang) {\n    var list = navigator.languages || [navigator.language || ""];\n    for (var i = 0; i < list.length; i++) {\n      var code = String(list[i]).slice(0, 2).toLowerCase();\n      if (code === "pt" || code === "en") { lang = code; break; }\n    }\n  }\n  if (lang === "pt") location.replace("/pt-br/" + location.search + location.hash);\n})();\n</script>\n'
+FAVICON = '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Crect width=\'24\' height=\'24\' fill=\'%23000\'/%3E%3Cpath d=\'M3 11h5M8 4v14M8 4h13M8 17h4M12 13v8M12 13h9\' fill=\'none\' stroke=\'%238ea3d6\' stroke-width=\'2\'/%3E%3Cpath d=\'M12 21h9\' stroke=\'%2387deff\' stroke-width=\'2.4\'/%3E%3C/svg%3E">\n'
 
 
 def page(lang, d, counts, all_sites, insect_candidates):
@@ -477,8 +502,8 @@ def page(lang, d, counts, all_sites, insect_candidates):
 <link rel="alternate" hreflang="en" href="{base}">
 <link rel="alternate" hreflang="pt-BR" href="{base}pt-br/">
 <link rel="alternate" hreflang="x-default" href="{base}">
-<link rel="preload" href="/assets/fonts/iAWriterQuattroS-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<style>{CSS}</style>
+{LANG_SCRIPT}<link rel="preload" href="/assets/fonts/iAWriterQuattroS-Regular.woff2" as="font" type="font/woff2" crossorigin>
+{FAVICON}<style>{CSS}</style>
 </head>
 <body>
 {states_symbol()}
@@ -541,6 +566,19 @@ def page(lang, d, counts, all_sites, insect_candidates):
         <div class="links"><a class="ln" href="mailto:contact@eduardofrafre.com?subject=Hidden%20Lineages">{t['wanted_mail']}</a></div>
       </div>
       <p class="source mono">{t['data'].format(downloaded=downloaded, today=date.today().isoformat())}</p>
+    </div>
+  </section>
+
+  <section class="section" id="support" aria-labelledby="give-h">
+    <div class="wrap head"><span class="k mono">{t['give_k']}</span><h2 id="give-h">{t['give_h']}</h2></div>
+    <div class="wrap body give">
+      <div>
+        <p>{t['give_p']}</p>
+        <div class="links mono"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">{t['give_link']}</a></div>
+      </div>
+      <a class="qr" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
+        <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="{t['give_alt']}"><figcaption class="mono dim">{t['give_qr']}</figcaption></figure>
+      </a>
     </div>
   </section>
 </main>

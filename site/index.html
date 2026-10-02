@@ -10,7 +10,32 @@
 <link rel="alternate" hreflang="en" href="https://hidden-lineages.lab.eduardofrafre.com/">
 <link rel="alternate" hreflang="pt-BR" href="https://hidden-lineages.lab.eduardofrafre.com/pt-br/">
 <link rel="alternate" hreflang="x-default" href="https://hidden-lineages.lab.eduardofrafre.com/">
+<script>
+// The root follows the browser's language until a visitor picks one with the
+// EN / PT switch. The pick is a cookie on eduardofrafre.com, so it carries over
+// to every subdomain.
+(function () {
+  var host = location.hostname, domain = /(^|\.)eduardofrafre\.com$/.test(host) ? "; Domain=eduardofrafre.com" : "";
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[hreflang]");
+    if (!a || a.host !== location.host) return;
+    var pick = /^pt/i.test(a.hreflang) ? "pt" : "en";
+    document.cookie = "lang=" + pick + domain + "; Path=/; Max-Age=31536000; SameSite=Lax";
+  });
+  if (/^\/pt-br(\/|$)/.test(location.pathname)) return;
+  var m = document.cookie.match(/(?:^|; )lang=(en|pt)/), lang = m && m[1];
+  if (!lang) {
+    var list = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < list.length; i++) {
+      var code = String(list[i]).slice(0, 2).toLowerCase();
+      if (code === "pt" || code === "en") { lang = code; break; }
+    }
+  }
+  if (lang === "pt") location.replace("/pt-br/" + location.search + location.hash);
+})();
+</script>
 <link rel="preload" href="/assets/fonts/iAWriterQuattroS-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23000'/%3E%3Cpath d='M3 11h5M8 4v14M8 4h13M8 17h4M12 13v8M12 13h9' fill='none' stroke='%238ea3d6' stroke-width='2'/%3E%3Cpath d='M12 21h9' stroke='%2387deff' stroke-width='2.4'/%3E%3C/svg%3E">
 <style>
 @font-face { font-family: Quattro; src: url(/assets/fonts/iAWriterQuattroS-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: Quattro; src: url(/assets/fonts/iAWriterQuattroS-Italic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
@@ -115,6 +140,13 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .wanted .links { padding: 0 14px 16px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
 .source { color: var(--ink-3); max-width: 52rem; margin-top: 28px; }
+.give { display: grid; grid-template-columns: 15rem minmax(0, var(--measure)) auto; gap: 24px 48px; align-items: start; }
+.give > div { grid-column: 2; }
+.give > div > p { color: var(--ink-2); text-wrap: pretty; }
+.qr { display: block; width: 132px; border: 1px solid var(--line-strong); padding: 8px; background: var(--raised); transition: border-color .2s; }
+.qr:hover { border-color: var(--voice); }
+.qr img { width: 100%; height: auto; image-rendering: pixelated; }
+.qr figcaption { margin-top: 6px; text-align: center; }
 .hub { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; padding-block: clamp(56px, 9vh, 96px); border-bottom: 1px solid var(--line); }
 .hub h2 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.02em; max-width: 22ch; }
 .colophon { display: flex; justify-content: space-between; gap: 12px 24px; padding-block: 24px 40px; flex-wrap: wrap; }
@@ -131,6 +163,8 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   .pipeline li:last-child { border-bottom: 0; }
   .pipeline li:not(:last-child)::after { content: "v"; right: auto; left: 16px; top: auto; bottom: -11px; }
   .limits { grid-template-columns: 1fr; }
+  .give { grid-template-columns: 1fr; }
+  .give > div { grid-column: 1; }
   .label dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); column-gap: 20px; }
 }
 @media (max-width: 560px) {
@@ -392,6 +426,19 @@ h1 em { font-style: italic; color: var(--voice-ink); }
         <div class="links"><a class="ln" href="mailto:contact@eduardofrafre.com?subject=Hidden%20Lineages">Write about Hidden Lineages</a></div>
       </div>
       <p class="source mono">Data: public records from <a class="ln" href="https://boldsystems.org" target="_blank" rel="noopener">BOLD Systems</a>, downloaded 2026-10-01. Species delimitation with ASAP (Puillandre et al. 2021). State outlines from IBGE. Generated 2026-10-02.</p>
+    </div>
+  </section>
+
+  <section class="section" id="support" aria-labelledby="give-h">
+    <div class="wrap head"><span class="k mono">Support</span><h2 id="give-h">Free, and staying free.</h2></div>
+    <div class="wrap body give">
+      <div>
+        <p>This page and the candidate list are free and stay free. A donation pays for hosting, data and the hours the insect review still needs.</p>
+        <div class="links mono"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">Donate by PayPal</a></div>
+      </div>
+      <a class="qr" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
+        <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="QR code for the PayPal donation page"><figcaption class="mono dim">scan to donate</figcaption></figure>
+      </a>
     </div>
   </section>
 </main>
