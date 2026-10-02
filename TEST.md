@@ -123,3 +123,32 @@ re-run after the change, and any difference is recorded.
 Also reported, as for fish: of the 10 strongest non-benchmark insect candidates,
 how many a reader can explain as a plausible cryptic complex or a naming problem,
 with a source.
+
+## Result, 2026-10-02: pass on three criteria, controls not scored, thin sample
+
+Output of `scripts/rediscovery_insects.py` against the criteria above.
+
+1. Deep recall **2/2** (*Pintomyia monticola*, *Mycodrosophila projectans*). Both blind.
+   Seven of the nine deep species have no southern barcodes at all: the Misiones
+   butterflies, *P. misionensis*, and the two non-blind cases, so those added nothing.
+2. Overall recall **4/6**. Flagged: the two deep cases, *Melese castrena*, *Eucereon rosa*.
+   Missed: *Lonomia parobliqua* (25 records, all in one BIN; the published second BIN
+   has no southern record) and *Spodoptera frugiperda* (7 records, one BIN; the strains
+   differ by 2.13%, under the BIN threshold, an expected miss).
+3. Controls: **not scored**. No control has 5 southern barcodes; the best has 3.
+   The tool's false-positive rate is still unmeasured.
+4. Ranking: **3 of 4** flagged positives land in Candidates. *Eucereon rosa* (6
+   records) went to single-sequence splits. *Melese chozeba*, a threshold case that is
+   one MOTU in print, also went there, which is the right place for it.
+
+So the BIN-ownership ranking held on its first out-of-sample check, but on four
+species. The pass says the pipeline is not broken on insects; it does not say much
+more. More testable controls would need either a wider region or controls picked
+from well-barcoded southern genera.
+
+Strongest non-benchmark candidates, not yet explained: *Simulium itaunense*,
+*Eacles ducalis*, *Simulium subnigrum*, *Virbia divisa*, *Correbidia elegans*,
+*Scolesa viettei*, *Hermeuptychia atalanta*, *Periga circumstans*, *Simulium
+spinibranchium*, *Paracles fusca*. *Paracles fusca* is one of the Zenker et al. 2016
+splits left out of the benchmark, so it has a source already. The rest need the
+same reading the fish list got.
