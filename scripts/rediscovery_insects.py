@@ -41,7 +41,7 @@ for key, (hit, total) in scored.items():
              "ranking": "flagged positives in Candidates"}[key]
     print(f"{label}: {hit}/{total}")
 
-print("\nStrongest non-benchmark candidates (second own BIN size, then n):")
+print("\nStrongest non-benchmark candidates, in splits.py order:")
 others = [n for n, s in where.items() if s == "candidate" and n not in names_in_bench]
 for name in others[:10]:
     print(f"  {name:30} n={sum(species[name].values()):<4} bins={sorted(species[name].values(), reverse=True)}")

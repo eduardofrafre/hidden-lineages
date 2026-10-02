@@ -12,6 +12,21 @@ python3 coverage.py          # per class: species with 5+ georeferenced COI barc
 python3 splits.py Teleostei  # split species: candidates, naming problems, misidentifications
 ```
 
+ASAP (Puillandre et al. 2021) is the second opinion on each split. Build it once, then
+align the split species and run it; `splits.py` picks the results up and ranks the
+candidates ASAP backs first.
+
+```sh
+scripts/build_asap.sh        # clones the MNHN C source via iTaxoTools/ASAPy, builds tools/asap
+cd scripts
+python3 asap_input.py        # one aligned FASTA per split species, in data/asap
+python3 asap.py              # ASAP on each; where the BIN partition ranks and its p-value
+```
+
+ASAP's top-ranked partition is not always the real one: with one or two sequences on
+one side of a gap it can prefer a partition that only splits noise. `asap.py` therefore
+also reports where the partition matching the BINs sits in ASAP's list, and its p-value.
+
 The first run downloads every public BOLD record from Brazil (about 190 MB, under a
 minute) to `data/brazil.tsv`. Delete it to refresh.
 
