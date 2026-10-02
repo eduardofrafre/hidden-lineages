@@ -79,3 +79,47 @@ split names), 2 probable misidentifications, 4 single-sequence splits.
   n=3) holds only *P. titthos*. It is the reverse case that holds a stray name:
   titthos's main BIN, BOLD:AAB5570, holds one *P. harpagos* record. Titthos is now a
   clean candidate, and the "explained" count for criterion 3 has no source for it.
+
+# Insect rediscovery test
+
+Written 2026-10-02, before running the test against the benchmark.
+
+**Benchmark** (`benchmark-insects.tsv`): 27 species from 12 papers, collected from
+the literature without looking at our data. Unlike the fish test it has controls.
+Each row has a `kind`:
+- `deep`, 9: published COI divergence of 2.5% or more between lineages.
+- `shallow`, 7: a published split under 2.5%, or one with no figure.
+- `threshold`, 3: 2 or more BINs, but a single MOTU at 2% and in ABGD. Reported, not scored.
+- `control`, 8: published as a single COI lineage in the region.
+
+Not blind: *Simulium hirtipupa* and *Hermeuptychia hermes* (both genera were seen
+splitting in the first read), and *Melese chozeba* (seen in the ASAP input summary).
+None of the other insect splits was looked at.
+
+**Known circularity**: the Zenker et al. 2016 rows come from the LEMMZ Serra do Mar
+project in Paraná, which holds most Brazilian Arctiinae barcodes. For those rows
+this is a consistency check on the same records. The Lavinia et al. 2017 rows
+(Misiones, Argentina) and the controls are independent of our records.
+
+**Interim names**, decided before the run: BOLD holds the Zenker lineages under names
+like `Cosmosoma auge sp. MMZ01`. `bold.py` will read `Genus species sp. TAG` as
+`Genus species`, everywhere and not only in this test, because the tag marks a
+provisional lineage of that species. `Genus sp. TAG` stays out. The fish result is
+re-run after the change, and any difference is recorded.
+
+**Testable**: 5 or more southern COI barcodes across the row's `bold_names`. Same as fish.
+
+**Flagged**: those barcodes fall in 2 or more BINs. Same as fish.
+
+**Pass**, all four:
+1. Deep recall: at least 2 in 3 testable `deep` species flagged.
+2. Overall recall: at least 1 in 2 testable `deep` and `shallow` species flagged.
+3. Controls: at most 1 in 3 testable controls flagged. With fewer than 3 testable
+   controls, reported and not scored.
+4. Ranking, the first fair check of the BIN-ownership rule: at least half of the
+   flagged testable positives land in Candidates in `splits.py`, not in naming
+   problems, misidentifications or single-sequence splits.
+
+Also reported, as for fish: of the 10 strongest non-benchmark insect candidates,
+how many a reader can explain as a plausible cryptic complex or a naming problem,
+with a source.

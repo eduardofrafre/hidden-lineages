@@ -1,0 +1,28 @@
+species	bold_names	kind	source	divergence	blind
+Pintomyia monticola	Pintomyia monticola,Lutzomyia monticola,Pintomyia (Pifanomyia) monticola	deep	Pinto et al. 2015 PLoS ONE doi:10.1371/journal.pone.0140636; Rodrigues et al. 2024 Sci Rep doi:10.1038/s41598-024-77249-1	2 provisional species, mean 8.1% (2015); max intraspecific 8.21%, 3+ putative species, sampling includes Piraquara PR (2024)	yes
+Pintomyia misionensis	Pintomyia misionensis,Lutzomyia misionensis,Pintomyia (Pifanomyia) misionensis	deep	Rodrigues et al. 2024 Sci Rep doi:10.1038/s41598-024-77249-1	max intraspecific 9.12%, 3 deep clades	yes
+Mycodrosophila projectans	Mycodrosophila projectans	deep	Machado et al. 2022 PLoS ONE doi:10.1371/journal.pone.0268657	3 cryptic syntopic species, min interspecific 12.1%, southern Brazil incl. RS	yes
+Heliconius erato	Heliconius erato,Heliconius erato phyllis	deep	Lavinia et al. 2017 PLoS ONE doi:10.1371/journal.pone.0186845, Table 3	max 3.45%, 2 BINs (Misiones, Argentina)	yes
+Vanessa braziliensis	Vanessa braziliensis,Cynthia braziliensis	deep	Lavinia et al. 2017, Table 3	max 2.80%, 2 BINs	yes
+Achlyodes busirus	Achlyodes busirus	deep	Lavinia et al. 2017, Table 3	max 2.96%, 2 BINs, sympatric in Misiones	yes
+Eantis thraso	Eantis thraso,Achlyodes thraso	deep	Lavinia et al. 2017, Table 3	max 3.63%, 3 BINs	yes
+Simulium hirtipupa	Simulium hirtipupa	deep	Andrade-Souza et al. 2017 PLoS ONE doi:10.1371/journal.pone.0190091	7 COI groups, mean intergroup 3.7%; not sampled in PR, SC or RS	no
+Hermeuptychia hermes	Hermeuptychia hermes	deep	Seraphim et al. 2014 Mol Ecol Resour doi:10.1111/1755-0998.12161; Cong & Grishin 2014 ZooKeys doi:10.3897/zookeys.379.6394	genus in 8 COI groups at ~2%; US "hermes" at least 4% from South American H. hermes	no
+Lonomia parobliqua	Lonomia parobliqua	shallow	González et al. 2023 PLoS Negl Trop Dis doi:10.1371/journal.pntd.0011063, S1 Table	2 BINs (AAB4043, ACE6785), Dmax 2.2%, PR SC RS	yes
+Cosmosoma auge	Cosmosoma auge,Cosmosoma auge sp. MMZ01,Cosmosoma auge sp. MMZ02	shallow	Zenker et al. 2016 PLoS ONE doi:10.1371/journal.pone.0148423, S1 Appendix	2 BINs (AAE4005, ABZ2089), 2 MOTUs at 2%, PR	yes
+Eucereon rosa	Eucereon rosa,Eucereon rosa sp. MMZ01,Eucereon rosa sp. MMZ02	shallow	Zenker et al. 2016, S1 Appendix	2 BINs (ACJ8235, AAV7029), 2 MOTUs at 2%, PR	yes
+Melese castrena	Melese castrena,Melese castrena sp. MMZ01,Melese castrena sp. MMZ02	shallow	Zenker et al. 2016, S1 Appendix	2 BINs (AAU0893, AAU0894), 2 MOTUs at 2%, PR	yes
+Elysius superba	Elysius superba	shallow	Zenker et al. 2016, S1 Appendix	2 BINs (AAZ3789, AAZ3790), 2 MOTUs at 2%, no morphological support, PR	yes
+Spodoptera frugiperda	Spodoptera frugiperda	shallow	Nagoshi et al. 2011 J Insect Sci doi:10.1673/031.011.15401; Silva-Brandão et al. 2018 PLoS ONE doi:10.1371/journal.pone.0197378	corn vs rice strain 2.13% (Florida); both strains in Brazil	yes
+Simulium oyapockense	Simulium oyapockense	shallow	Hamada et al. 2023 Med Vet Entomol doi:10.1111/mve.12606	populations south of the Amazon an unresolved complex; no figure in the abstract	no
+Melese chozeba	Melese chozeba	threshold	Zenker et al. 2016	2 BINs (ACE7925, ACE7928) but 1 MOTU at 2% and in ABGD, PR	no
+Leucanopsis leucanina	Leucanopsis leucanina	threshold	Zenker et al. 2016	2 BINs (AAE7305, ACH2171) but 1 MOTU at 2% and in ABGD, PR	yes
+Phaegoptera fusca	Phaegoptera fusca,Phaegoptera fusca sp. MMZ01,Phaegoptera fusca sp. MMZ02	threshold	Zenker et al. 2016	3 BINs but 1 MOTU at 2% and in ABGD, PR	yes
+Anopheles cruzii	Anopheles cruzii,Kerteszia cruzii,Anopheles (Kerteszia) cruzii	control	Bourke et al. 2023 Genes doi:10.3390/genes14020344	1 BIN (AAG3843), 1 ASAP cluster in COI; a complex only in nuclear data	yes
+Anopheles bellator	Anopheles bellator,Kerteszia bellator,Anopheles (Kerteszia) bellator	control	Bourke et al. 2023 Genes doi:10.3390/genes14020344; Pinheiro et al. 2025 Mem Inst Oswaldo Cruz doi:10.1590/0074-02760240287	deep only Trinidad vs São Paulo (2 BINs, 4.11%); PR vs SC same lineage (Dxy 0.41%)	yes
+Lonomia obliqua	Lonomia obliqua	control	González et al. 2023, S1 Table	1 BIN (AAB4042), Dmax 1.8%	yes
+Spodoptera eridania	Spodoptera eridania	control	Horikoshi et al. 2025 J Insect Sci doi:10.1093/jisesa/ieaf092	33 haplotypes, no haplogroups, no structure in Brazil	yes
+Thyrinteina arnobia	Thyrinteina arnobia	control	Nanini et al. 2024 Sci Rep doi:10.1038/s41598-024-71816-2	COI+COII pi 0.29%, haplogroups 1-2 steps apart	yes
+Xylophanes loelia	Xylophanes loelia,Xylophanes heinrichi	control	Vaglia et al. 2008 Zootaxa 1923:18-36 doi:10.11646/zootaxa.1923.1.2	"intraspecific variation very low" southern Brazil to Belize	yes
+Cosmosoma teuthras	Cosmosoma teuthras	control	Zenker et al. 2016	1 BIN (AAA1312), split only by ABGD	yes
+Dynamine artemisia	Dynamine artemisia	control	Lavinia et al. 2017, shallow-variation table	max 1.54%, 1 BIN	yes
