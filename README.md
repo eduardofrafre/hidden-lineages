@@ -9,7 +9,7 @@ Exploration stage: scripts only.
 ```sh
 cd scripts
 python3 coverage.py          # per class: species with 5+ georeferenced COI barcodes
-python3 splits.py Teleostei  # species whose barcodes fall in more than one BIN
+python3 splits.py Teleostei  # split species: candidates, naming problems, misidentifications
 ```
 
 The first run downloads every public BOLD record from Brazil (about 190 MB, under a

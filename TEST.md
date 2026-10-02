@@ -55,3 +55,27 @@ What the test teaches about ranking, more than the pass:
 - Five of the top ten are one problem, BOLD:AAC5910, counted five times. Splits that
   share a BIN with other names must collapse into one entry per BIN group.
 - A second BIN of one sequence is not a lineage. Rank those last.
+
+## Ranking applied after the test, 2026-10-02
+
+`scripts/splits.py` now applies the two lessons above, refined after a first try.
+Collapsing every split that shares a BIN with another name, as first written, also
+removed *Rhamdia quelen*, *Phalloceros harpagos* and *Corydoras paleatus*. Their shared
+BINs are not mixed: each is clearly owned by another name. So a BIN now belongs to the
+name holding most of its records, and a split counts only the BINs the species owns.
+Records in a BIN another name owns are listed as probable misidentifications. BINs with
+no majority name form the naming-problem groups.
+
+This refinement was designed after seeing which benchmark hits the first version
+dropped, so the fish benchmark cannot test it. The insect benchmark, written before
+its run, is the first fair check.
+
+Fish result: 8 candidates, 1 naming-problem group (BOLD:AAC5910 and BOLD:ACJ1542, four
+split names), 2 probable misidentifications, 4 single-sequence splits.
+- *Rhamdia quelen* is no longer a lineage candidate. Its 5 and 4 extra records sit in
+  BINs that hold mostly *R. voulezi* (14) and *R. branneri* (13). Same for
+  *C. paleatus*: 2 records in a BIN that is mostly *C. ehrhardti*.
+- Correction to criterion 3 above: *Phalloceros titthos*'s second BIN (BOLD:AGE7052,
+  n=3) holds only *P. titthos*. It is the reverse case that holds a stray name:
+  titthos's main BIN, BOLD:AAB5570, holds one *P. harpagos* record. Titthos is now a
+  clean candidate, and the "explained" count for criterion 3 has no source for it.
