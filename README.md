@@ -4,7 +4,8 @@ Candidate cryptic species in the southern Atlantic Forest (Paraná, Santa Catari
 Rio Grande do Sul), flagged from public DNA barcodes in BOLD. The output is a list of
 candidates for a taxonomist to look at, never a claim that a species is new.
 
-Exploration stage: scripts only.
+Exploration stage. The candidates are also published as a page at
+[hidden-lineages.lab.eduardofrafre.com](https://hidden-lineages.lab.eduardofrafre.com).
 
 ```sh
 cd scripts
@@ -41,3 +42,10 @@ minute) to `data/brazil.tsv`. Delete it to refresh.
 
 The work is free and the results will be public. If you want to help pay for it, you can
 [donate by PayPal](https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ).
+
+## Licence
+
+The code is MIT, see [LICENSE](LICENSE). The candidate lists are derived from public
+BOLD records, and each record keeps the terms its submitter set in BOLD; check those
+before reusing the data. The iA Writer fonts in `site/assets/fonts` are under the SIL
+Open Font License, see the `LICENSE.md` next to them.
