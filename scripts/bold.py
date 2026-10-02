@@ -51,19 +51,21 @@ def south_records(path):
 
 
 INTERIM = re.compile(r"^([A-Z][a-z]+ [a-z][a-z-]+) sp\. \S+$")
+BINOMIAL = re.compile(r"[A-Z][a-z]+ [a-z][a-z-]+")
 
 
 def barcodes(path):
     """COI-5P rows with a real species name, a BIN and coordinates.
 
     An interim name such as `Cosmosoma auge sp. MMZ01` marks a provisional lineage
-    of `Cosmosoma auge` and is read as that species; `Genus sp. X` stays out.
+    of `Cosmosoma auge` and is read as that species. Anything else that is not a plain
+    binomial stays out: `Genus sp.`, `cf.` and `aff.` names, and interim tags written
+    without `sp.`, such as `Eupithecia AM01Br` or `Idaea arhostioidesAH01Br`.
     """
     for row in south_records(path):
         m = INTERIM.match(row["species"])
         if m:
             row["species"] = m.group(1)
         sp = row["species"]
-        if (row["marker_code"] == "COI-5P" and sp and row["bin_uri"] and row["_coord"]
-                and " sp." not in sp and " cf." not in sp and " aff." not in sp):
+        if row["marker_code"] == "COI-5P" and BINOMIAL.fullmatch(sp) and row["bin_uri"] and row["_coord"]:
             yield row
