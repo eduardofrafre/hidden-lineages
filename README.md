@@ -27,6 +27,11 @@ ASAP's top-ranked partition is not always the real one: with one or two sequence
 one side of a gap it can prefer a partition that only splits noise. `asap.py` therefore
 also reports where the partition matching the BINs sits in ASAP's list, and its p-value.
 
+Each candidate in `splits.py` also shows where its two largest BINs were collected
+(`scripts/geography.py`): together at a shared site, apart, or too few sites to say.
+It is shown as evidence, not used to rank: lineages apart can be one structured
+species, and lineages together can be two species or a contaminated sample.
+
 The first run downloads every public BOLD record from Brazil (about 190 MB, under a
 minute) to `data/brazil.tsv`. Delete it to refresh.
 

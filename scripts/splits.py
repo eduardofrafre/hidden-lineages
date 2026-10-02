@@ -18,6 +18,7 @@ import sys
 from collections import Counter, defaultdict
 
 from bold import DATA, barcodes, download
+from geography import pattern
 
 
 
@@ -42,18 +43,18 @@ def asap_results():
 
 
 def load(cls):
-    """Per species BIN counts, per BIN name counts, mean latitudes and orders for one class."""
+    """Per species BIN counts, per BIN name counts, record coordinates per (species, BIN), and orders."""
     species = defaultdict(Counter)
     bin_names = defaultdict(Counter)
-    lats = defaultdict(list)
+    coords = defaultdict(list)
     order = {}
     for row in barcodes(download("geo:country/ocean:Brazil", "brazil")):
         if row["class"] == cls:
             species[row["species"]][row["bin_uri"]] += 1
             bin_names[row["bin_uri"]][row["species"]] += 1
-            lats[row["species"], row["bin_uri"]].append(row["_coord"][0])
+            coords[row["species"], row["bin_uri"]].append(row["_coord"])
             order[row["species"]] = row["order"]
-    return species, bin_names, lats, order
+    return species, bin_names, coords, order
 
 
 def owner(bin_names, b):
@@ -111,7 +112,7 @@ def section(species, bin_names):
 
 
 if __name__ == "__main__":
-    species, bin_names, lats, order = load(sys.argv[1] if len(sys.argv) > 1 else "Teleostei")
+    species, bin_names, coords, order = load(sys.argv[1] if len(sys.argv) > 1 else "Teleostei")
     asap = asap_results()
     splits = {name: bins for name, bins in species.items() if sum(bins.values()) >= 5 and len(bins) >= 2}
 
@@ -120,13 +121,16 @@ if __name__ == "__main__":
         for b, c in species[name].most_common():
             o = owner(bin_names, b)
             tag = "" if o == name else f" [{o}'s]" if o else " [mixed]"
-            parts.append(f"{b} n={c} lat={sum(lats[name, b]) / c:.1f}{tag}")
+            parts.append(f"{b} n={c} lat={sum(x[0] for x in coords[name, b]) / c:.1f}{tag}")
         a = asap.get(name)
         note = ""
         if a:
             gap = f"BIN split rank {a['bin_rank']}, p={float(a['bin_p']):.0e}" if int(a["bin_rank"]) else "BIN split not listed"
             note = f"  ASAP: {gap}; best {a['asap_groups']} groups at {float(a['threshold']) * 100:.1f}%"
-        return f"{name:30} {order[name]:20} n={sum(species[name].values()):<4} {', '.join(parts)}{note}"
+        (b1, _), (b2, _) = species[name].most_common(2)
+        label, sa, sb, dist = pattern(coords[name, b1], coords[name, b2])
+        where = f"  Sites: {label}, {sa} and {sb} sites, closest {dist:.0f} km"
+        return f"{name:30} {order[name]:20} n={sum(species[name].values()):<4} {', '.join(parts)}{note}{where}"
 
     candidates, groups, misids, singles = classify(species, bin_names)
     print(f"Candidates ({len(candidates)})")
