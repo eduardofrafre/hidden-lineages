@@ -22,6 +22,7 @@ cd scripts
 python3 asap_input.py        # one aligned FASTA per split species, in data/asap
 python3 asap.py              # ASAP on each; where the BIN partition ranks and its p-value
 python3 sheet.py Teleostei   # the candidate sheet, in English and pt-BR
+python3 site.py              # the showcase page in site/, deployed with npx wrangler deploy
 ```
 
 ASAP's top-ranked partition is not always the real one: with one or two sequences on

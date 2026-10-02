@@ -174,25 +174,33 @@ def write(lang, cls, species, bin_names, coords, order, asap, kept, demoted, mis
     return path
 
 
-if __name__ == "__main__":
-    cls = sys.argv[1] if len(sys.argv) > 1 else "Teleostei"
+def build(cls):
+    """Everything the sheet and the site need for one class.
+
+    A genus-level distance alone is not enough to doubt a candidate: cryptic drosophilids
+    are published at 12%. With a record of another genus in the second BIN as well, the
+    split more likely comes from misidentified vouchers, and the candidate is demoted.
+    """
     species, bin_names, coords, order = load(cls)
     asap = asap_results()
     candidates, groups, misids, _ = classify(species, bin_names, asap)
     notes = {r["species"]: r for r in csv.DictReader(open(ROOT / "candidate-notes.tsv"), delimiter="\t")}
     seqs = {row["processid"]: (row["species"], row["bin_uri"], row["nuc"])
             for row in barcodes(download("geo:country/ocean:Brazil", "brazil")) if row["class"] == cls}
-
-    # A genus-level distance alone is not enough to doubt a candidate: cryptic drosophilids
-    # are published at 12%. With a record of another genus in the second BIN as well, the
-    # split more likely comes from misidentified vouchers, and the candidate moves down.
     kept, demoted = [], []
     for name in candidates:
         b1, b2 = [b for b, _ in species[name].most_common() if owner(bin_names, b) == name][:2]
         med, lo, hi = gap(seqs, name, b1, b2)
         others = sorted(n for n in bin_names[b2] if n.split()[0] != name.split()[0])
         (demoted if med > 10 and others else kept).append((name, b1, b2, med, lo, hi, others))
+    return dict(species=species, bin_names=bin_names, coords=coords, order=order, asap=asap,
+                kept=kept, demoted=demoted, misids=misids, groups=groups, notes=notes)
 
+
+if __name__ == "__main__":
+    cls = sys.argv[1] if len(sys.argv) > 1 else "Teleostei"
+    d = build(cls)
     for lang in TEXT:
-        path = write(lang, cls, species, bin_names, coords, order, asap, kept, demoted, misids, groups, notes)
-        print(f"wrote {path.name}: {len(kept)} candidates, {len(demoted)} moved to misidentifications")
+        path = write(lang, cls, d["species"], d["bin_names"], d["coords"], d["order"], d["asap"],
+                     d["kept"], d["demoted"], d["misids"], d["groups"], d["notes"])
+        print(f"wrote {path.name}: {len(d['kept'])} candidates, {len(d['demoted'])} moved to misidentifications")

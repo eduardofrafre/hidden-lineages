@@ -1,0 +1,11 @@
+{
+  "name": "hidden-lineages",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./site"
+  },
+  "routes": [
+    { "pattern": "hidden-lineages.lab.eduardofrafre.com", "custom_domain": true }
+  ]
+}
