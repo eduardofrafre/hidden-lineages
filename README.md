@@ -41,7 +41,8 @@ minute) to `data/brazil.tsv`. Delete it to refresh.
 ## Support
 
 The work is free and the results will be public. If you want to help pay for it, you can
-[donate by PayPal](https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ).
+[donate by PayPal](https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ)
+or, from Brazil, [by Pix](https://eduardofrafre.com/pt-br/?pay=pix#support).
 
 ## Licence
 

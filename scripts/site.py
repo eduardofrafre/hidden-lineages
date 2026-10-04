@@ -134,6 +134,10 @@ TEXT = {
                   "data and the hours the insect review still needs.",
         "give_link": "Donate by PayPal", "give_qr": "scan to donate",
         "give_alt": "QR code for the PayPal donation page",
+        "pay_default": "paypal", "pay_group": "Payment method",
+        "pix_copy": "Copy the Pix code", "pix_done": "Copied, paste it in your bank app",
+        "pix_key": "Pix key", "pix_qr": "scan with your bank app",
+        "pix_alt": "Pix QR code for a donation of any amount",
         "data": "Data: public records from <a class=\"ln\" href=\"https://boldsystems.org\" target=\"_blank\" "
                 "rel=\"noopener\">BOLD Systems</a>, downloaded {downloaded}. Species delimitation with ASAP "
                 "(Puillandre et al. 2021). State outlines from IBGE. Generated {today}.",
@@ -226,6 +230,10 @@ TEXT = {
                   "hospedagem, dados e as horas que a revisão dos insetos ainda pede.",
         "give_link": "Doar pelo PayPal", "give_qr": "aponte a câmera para doar",
         "give_alt": "QR code da página de doação no PayPal",
+        "pay_default": "pix", "pay_group": "Forma de pagamento",
+        "pix_copy": "Copiar o código Pix", "pix_done": "Copiado, cole no app do banco",
+        "pix_key": "Chave Pix", "pix_qr": "leia no app do banco",
+        "pix_alt": "QR code Pix para doar qualquer valor",
         "data": "Dados: registros públicos do <a class=\"ln\" href=\"https://boldsystems.org\" target=\"_blank\" "
                 "rel=\"noopener\">BOLD Systems</a>, baixados em {downloaded}. Delimitação de espécies com o ASAP "
                 "(Puillandre et al. 2021). Contornos dos estados do IBGE. Gerado em {today}.",
@@ -340,11 +348,25 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .source { color: var(--ink-3); max-width: 52rem; margin-top: 28px; }
 .give { display: grid; grid-template-columns: 15rem minmax(0, var(--measure)) auto; gap: 24px 48px; align-items: start; }
 .give > div { grid-column: 2; }
+.give > div + div { grid-column: 3; }
 .give > div > p { color: var(--ink-2); text-wrap: pretty; }
 .qr { display: block; width: 132px; border: 1px solid var(--line-strong); padding: 8px; background: var(--raised); transition: border-color .2s; }
 .qr:hover { border-color: var(--voice); }
 .qr img { width: 100%; height: auto; image-rendering: pixelated; }
 .qr figcaption { margin-top: 6px; text-align: center; }
+.qr + .qr { margin-top: 12px; }
+.pay-switch { display: flex; width: 132px; margin-bottom: 10px; border: 1px solid var(--line-strong); }
+.pay-switch[hidden] { display: none; }
+.pay-switch button { flex: 1; font: inherit; color: var(--ink-3); background: none; border: 0; padding: 3px 0; cursor: pointer; transition: color .2s, background .2s; }
+.pay-switch button + button { border-left: 1px solid var(--line-strong); }
+.pay-switch button:hover { color: var(--ink); }
+.pay-switch [aria-pressed="true"] { color: var(--ink); background: var(--raised); }
+.pix { margin-top: 20px; }
+.pix button.ln { font: inherit; background-color: transparent; border: 0; padding: 0 0 1px; cursor: pointer; }
+.pix p { margin-top: 6px; }
+.pix code { font: inherit; color: var(--ink-2); user-select: all; overflow-wrap: anywhere; }
+/* Without the script both methods show; with it, one at a time. */
+[data-pay="paypal"] .pay-pix, [data-pay="pix"] .pay-paypal { display: none; }
 .hub { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; padding-block: clamp(56px, 9vh, 96px); border-bottom: 1px solid var(--line); }
 .hub h2 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.02em; max-width: 22ch; }
 .colophon { display: flex; justify-content: space-between; gap: 12px 24px; padding-block: 24px 40px; flex-wrap: wrap; }
@@ -362,7 +384,7 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   .pipeline li:not(:last-child)::after { content: "v"; right: auto; left: 16px; top: auto; bottom: -11px; }
   .limits { grid-template-columns: 1fr; }
   .give { grid-template-columns: 1fr; }
-  .give > div { grid-column: 1; }
+  .give > div, .give > div + div { grid-column: 1; }
   .label dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); column-gap: 20px; }
 }
 @media (max-width: 560px) {
@@ -574,11 +596,41 @@ def page(lang, d, counts, all_sites, insect_candidates):
     <div class="wrap body give">
       <div>
         <p>{t['give_p']}</p>
-        <div class="links mono"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">{t['give_link']}</a></div>
+        <div class="links mono pay-paypal"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">{t['give_link']}</a></div>
+        <div class="pix mono pay-pix">
+          <button type="button" class="ln" data-copy="00020126580014br.gov.bcb.pix01369e1497a0-9a23-4910-9937-f5cec7c85f4b5204000053039865802BR5915EDUARDO FREITAS6008CRICIUMA62070503***6304BCD9" data-done="{t['pix_done']}">{t['pix_copy']}</button><span class="dim" role="status"></span>
+          <p class="dim">{t['pix_key']} <code>9e1497a0-9a23-4910-9937-f5cec7c85f4b</code></p>
+        </div>
       </div>
-      <a class="qr" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
-        <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="{t['give_alt']}"><figcaption class="mono dim">{t['give_qr']}</figcaption></figure>
-      </a>
+      <div>
+        <div class="pay-switch mono" role="group" aria-label="{t['pay_group']}" hidden><button type="button" data-pay="pix">Pix</button><button type="button" data-pay="paypal">PayPal</button></div>
+        <a class="qr pay-paypal" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
+          <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="{t['give_alt']}"><figcaption class="mono dim">{t['give_qr']}</figcaption></figure>
+        </a>
+        <figure class="qr pay-pix"><img src="/assets/donate-pix.svg" width="132" height="132" alt="{t['pix_alt']}"><figcaption class="mono dim">{t['pix_qr']}</figcaption></figure>
+        <script>
+        // Pix has no web link, only a code: on a phone the way in is copying it into
+        // the bank app. Brazilian pages open on Pix, the rest on PayPal, unless the
+        // link asks for one with ?pay=pix or ?pay=paypal.
+        (function () {{
+          var box = document.currentScript.parentElement.parentElement, sw = box.querySelector(".pay-switch");
+          function pick(m) {{
+            box.dataset.pay = m;
+            sw.querySelectorAll("button").forEach(function (b) {{ b.setAttribute("aria-pressed", b.dataset.pay === m); }});
+          }}
+          sw.hidden = false;
+          sw.addEventListener("click", function (e) {{ if (e.target.dataset.pay) pick(e.target.dataset.pay); }});
+          var ask = /[?&]pay=(pix|paypal)\\b/.exec(location.search);
+          pick(ask ? ask[1] : "{t['pay_default']}");
+          var btn = box.querySelector("[data-copy]"), status = btn.nextElementSibling;
+          btn.addEventListener("click", function () {{
+            var done = function () {{ status.textContent = " " + btn.dataset.done; setTimeout(function () {{ status.textContent = ""; }}, 4000); }};
+            var select = function () {{ getSelection().selectAllChildren(box.querySelector(".pix code")); }};
+            navigator.clipboard ? navigator.clipboard.writeText(btn.dataset.copy).then(done, select) : select();
+          }});
+        }})();
+        </script>
+      </div>
     </div>
   </section>
 </main>
