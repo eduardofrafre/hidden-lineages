@@ -509,7 +509,7 @@ def page(lang, d, counts, all_sites, insect_candidates):
 {states_symbol()}
 <header class="wrap top">
   <div class="brand">
-    <a class="name" href="https://eduardofrafre.com" target="_blank" rel="noopener">Eduardo Freitas</a>
+    <a class="name" href="https://eduardofrafre.com">Eduardo Freitas</a>
     <a class="mono crumb" href="{lab}">/ Lab</a>
     <span class="mono here">/ {'Hidden Lineages' if lang == 'en' else 'Linhagens Ocultas'}</span>
   </div>
