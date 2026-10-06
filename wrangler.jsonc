@@ -3,7 +3,8 @@
   "compatibility_date": "2026-10-02",
   "workers_dev": true,
   "assets": {
-    "directory": "./site"
+    "directory": "./site",
+    "not_found_handling": "404-page"
   },
   "routes": [
     { "pattern": "hidden-lineages.lab.eduardofrafre.com", "custom_domain": true }

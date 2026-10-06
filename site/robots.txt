@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://hidden-lineages.lab.eduardofrafre.com/sitemap.xml
