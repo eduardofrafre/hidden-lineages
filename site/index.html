@@ -145,6 +145,12 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .text .plain { font-size: 19px; line-height: 1.55; margin-top: 14px; max-width: var(--measure); text-wrap: pretty; }
 .spec { margin-top: 22px; padding-left: 14px; border-left: 2px solid var(--voice); max-width: var(--measure); color: var(--ink-2); }
 .spec p + p { margin-top: 6px; }
+.spec summary, .misid-fold summary { cursor: pointer; list-style: none; color: var(--ink-3); }
+.spec summary::-webkit-details-marker, .misid-fold summary::-webkit-details-marker { display: none; }
+.spec summary::after, .misid-fold summary::after { content: " +"; }
+.spec[open] summary::after, .misid-fold[open] summary::after { content: " \2013"; }
+.spec[open] summary { margin-bottom: 6px; }
+.misid-fold[open] summary { margin-bottom: 14px; }
 .spec .k { margin-bottom: 6px; }
 .mini figcaption { margin-top: 8px; display: flex; gap: 6px 14px; flex-wrap: wrap; color: var(--ink-3); }
 .sw { display: inline-flex; align-items: center; gap: 6px; }
@@ -168,27 +174,7 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .wanted .links { padding: 0 14px 16px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
 .source { color: var(--ink-3); max-width: 52rem; margin-top: 28px; }
-.give { display: grid; grid-template-columns: 15rem minmax(0, 1fr) auto; gap: 24px 48px; align-items: start; }
-.give > div { grid-column: 2; }
-.give > div + div { grid-column: 3; }
-.give > div > p { color: var(--ink-2); max-width: var(--measure); text-wrap: pretty; }
-.qr { display: block; width: 132px; border: 1px solid var(--line-strong); padding: 8px; background: var(--raised); transition: border-color .2s; }
-.qr:hover { border-color: var(--voice); }
-.qr img { width: 100%; height: auto; image-rendering: pixelated; }
-.qr figcaption { margin-top: 6px; text-align: center; }
-.qr + .qr { margin-top: 12px; }
-.pay-switch { display: flex; width: 132px; margin-bottom: 10px; border: 1px solid var(--line-strong); }
-.pay-switch[hidden] { display: none; }
-.pay-switch button { flex: 1; font: inherit; color: var(--ink-3); background: none; border: 0; padding: 3px 0; cursor: pointer; transition: color .2s, background .2s; }
-.pay-switch button + button { border-left: 1px solid var(--line-strong); }
-.pay-switch button:hover { color: var(--ink); }
-.pay-switch [aria-pressed="true"] { color: var(--ink); background: var(--raised); }
-.pix { margin-top: 20px; }
-.pix button.ln { font: inherit; background-color: transparent; border: 0; padding: 0 0 1px; cursor: pointer; }
-.pix p { margin-top: 6px; }
-.pix code { font: inherit; color: var(--ink-2); user-select: all; overflow-wrap: anywhere; }
 /* Without the script both methods show; with it, one at a time. */
-[data-pay="paypal"] .pay-pix, [data-pay="pix"] .pay-paypal { display: none; }
 .hub { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; padding-block: clamp(56px, 9vh, 96px); border-bottom: 1px solid var(--line); }
 .hub h2 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.02em; max-width: 22ch; }
 .colophon { display: flex; justify-content: space-between; gap: 12px 24px; padding-block: 24px 40px; flex-wrap: wrap; }
@@ -206,8 +192,6 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   .pipeline li:last-child { border-bottom: 0; }
   .pipeline li:not(:last-child)::after { content: "->"; right: auto; left: 16px; top: auto; bottom: -11px; transform: rotate(90deg); }
   .limits { grid-template-columns: 1fr; }
-  .give { grid-template-columns: 1fr; }
-  .give > div, .give > div + div { grid-column: 1; }
   .label dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
   .label dl div + div { border-top: 0; }
   .label dl div:nth-child(n+3) { border-top: 1px dashed var(--line); }
@@ -219,11 +203,30 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   .facts dd { font-size: 22px; }
 }
 @media (max-width: 560px) {
-  .pay-switch, .qr { display: none !important; }
-  [data-pay] .links.pay-paypal, [data-pay] .cta.pay-paypal { display: flex; }
-  [data-pay] .pix.pay-pix { display: block; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* ── Footer: the same on every family site ──────────────────────── */
+footer.ft { display: block; padding: 0; margin: 0; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--ink-3); }
+.ft p { margin: 0; max-width: none; }
+.ft a { color: var(--ink-2); text-decoration: none; transition: color .2s; }
+.ft a:hover, .ft a[aria-current] { color: var(--voice-ink); }
+.ft .k { color: var(--ink-3); margin-bottom: 10px; font: inherit; text-transform: none; letter-spacing: 0; }
+.ft-give { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: center; padding-block: 44px; border-bottom: 1px solid var(--line); }
+.ft-give h2 { font-family: var(--sans); font-weight: 400; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -.02em; color: var(--ink); margin: 0 0 10px; }
+.ft .lead { color: var(--ink-2); max-width: 36rem; }
+.ft .ft-ways { display: flex; gap: 8px 24px; flex-wrap: wrap; align-items: baseline; margin-top: 18px; }
+.ft-ways button { font: inherit; color: var(--ink-2); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.ft-ways a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.ft-ways button:hover { color: var(--voice-ink); }
+.ft-qr { display: flex; gap: 16px; }
+.ft-qr figure { margin: 0; width: 132px; padding: 8px; border: 1px solid var(--line); background: var(--raised); transition: border-color .2s, box-shadow .2s; }
+.ft-qr a:hover figure, .ft-qr figure.on { border-color: var(--voice); box-shadow: 0 0 0 1px var(--voice); }
+.ft-qr img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.ft-qr figcaption { margin-top: 6px; text-align: center; color: var(--ink-3); white-space: nowrap; }
+.ft-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 36px 40px; }
+.ft-cols ul { list-style: none; margin: 0; padding: 0; }
+.ft-cols b { font-weight: 400; color: var(--ink); }
+@media (max-width: 720px) { .ft-give { grid-template-columns: 1fr; } .ft-qr { display: none; } .ft-cols { grid-template-columns: 1fr 1fr; gap: 28px 16px; } }
 </style>
 </head>
 <body>
@@ -248,7 +251,7 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div>
         <p class="kicker mono">Lab notebook · ECO-02 · Southern Atlantic Forest</p>
         <h1>Some fish may be <em>two species</em> under one name.</h1>
-        <p class="lede">A DNA barcode is a short stretch of one gene that works like a species fingerprint. When animals carrying the same name turn out to have two clearly different fingerprints, the name may be hiding a species nobody has described. This project reads every public barcode from Paraná, Santa Catarina and Rio Grande do Sul and lists the names most likely to be hiding one.</p>
+        <p class="lede">A DNA barcode works like a species fingerprint. Where one name carries two clearly different fingerprints, it may be hiding a species nobody has described. This reads every public barcode from Paraná, Santa Catarina and Rio Grande do Sul and lists the names most likely to.</p>
         <dl class="facts mono"><div><dt>records from the three states</dt><dd>12,228</dd></div><div><dt>usable DNA barcodes</dt><dd>6,336</dd></div><div><dt>names split across groups</dt><dd>74</dd></div><div><dt>fish candidates</dt><dd>7</dd></div></dl>
       </div>
       <figure class="plate">
@@ -261,7 +264,7 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   <section class="section" aria-labelledby="how-h">
     <div class="wrap head"><span class="k mono">How it works</span><h2 id="how-h">From public records to a short list</h2></div>
     <div class="wrap body">
-      <figure><ol class="pipeline"><li><span class="n mono">01</span><h3>Barcodes</h3><span class="tech mono">BOLD Systems</span><p>Public DNA barcodes, each with a name, a place and a sequence.</p></li><li><span class="n mono">02</span><h3>Groups</h3><span class="tech mono">BINs</span><p>BOLD clusters near-identical barcodes into groups that roughly match species.</p></li><li><span class="n mono">03</span><h3>Splits</h3><span class="tech mono">one name, two groups</span><p>Names whose barcodes fall into two or more groups the name itself dominates. Mislabelled records are set aside.</p></li><li><span class="n mono">04</span><h3>Second opinion</h3><span class="tech mono">ASAP</span><p>An independent method checks whether there is a real gap between the groups, or only noise.</p></li><li><span class="n mono">05</span><h3>Candidates</h3><span class="tech mono">for a specialist</span><p>What survives, with the evidence next to it.</p></li></ol>
+      <figure><ol class="pipeline"><li><span class="n mono">01</span><h3>Barcodes</h3><span class="tech mono">BOLD Systems</span></li><li><span class="n mono">02</span><h3>Groups</h3><span class="tech mono">BINs</span></li><li><span class="n mono">03</span><h3>Splits</h3><span class="tech mono">one name, two groups</span></li><li><span class="n mono">04</span><h3>Second opinion</h3><span class="tech mono">ASAP</span></li><li><span class="n mono">05</span><h3>Candidates</h3><span class="tech mono">for a specialist</span></li></ol>
       <figcaption class="mono dim" style="margin-top:12px"><b>Fig. 1.</b> Each step removes a kind of false alarm.</figcaption></figure>
     </div>
   </section>
@@ -269,7 +272,7 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   <section class="section" id="candidates" aria-labelledby="cands-h">
     <div class="wrap head">
       <span class="k mono">The candidates</span>
-      <div><h2 id="cands-h">Seven fish worth a second look</h2><p>Ordered by how strongly the second method backs the split. None of these is a new species yet: each is a question for someone who can examine the fish.</p></div>
+      <div><h2 id="cands-h">Seven fish worth a second look</h2><p>None is a new species yet: each is a question for someone who can examine the fish.</p></div>
     </div>
     
     <article class="wrap entry" id="hl-01">
@@ -286,13 +289,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Salminus brasiliensis</h3>
         <p class="common">The dourado, or golden dorado: a large river predator and one of the most sought-after fish in sport fishing.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 6.5%. That is larger than the difference between many pairs of fish already recognised as separate species.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:AAZ3803 (7), BOLD:AAD2790 (4). ASAP finds a gap at the BIN boundary (p = 6e-04).</p>
           <p>The two largest groups were collected at a shared site (6 and 3 sites).</p>
           <p>Published: Rosso et al. 2012, Mol Ecol Resour 12:999-1011. Over 3% between southern populations and the rest of the range.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Salminus brasiliensis."><use href="#states"/><circle class="pa" cx="64.4" cy="198.8" r="4"/><circle class="pa" cx="142.2" cy="183.7" r="4"/><circle class="pa" cx="133.3" cy="128.4" r="4"/><circle class="pa" cx="82.2" cy="123.3" r="4"/><circle class="pa" cx="88.9" cy="120.8" r="4"/><circle class="pa" cx="86.7" cy="118.3" r="4"/><circle class="pb" cx="133.3" cy="128.4" r="5.5"/><circle class="pb" cx="86.7" cy="118.3" r="5.5"/><circle class="pb" cx="88.9" cy="25.2" r="5.5"/></svg>
@@ -313,13 +314,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Phalloceros harpagos</h3>
         <p class="common">A barrigudinho: a small livebearing fish of streams and ditches, a relative of the guppy.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 2.2%. That sits at the edge where biologists start to suspect two species.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:ABY8844 (40), BOLD:ACE6602 (3), BOLD:AAB5570 (1). ASAP finds a gap at the BIN boundary (p = 1e-05).</p>
           <p>The second group is known from 1 site, 88 km from the first.</p>
           <p>Published: Pereira et al. 2013, BMC Genetics 14:20, Table 3. 1.7 to 2.2% within the species in the Upper Paraná.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Phalloceros harpagos."><use href="#states"/><circle class="pa" cx="137.8" cy="88.1" r="4"/><circle class="pa" cx="146.7" cy="78.0" r="4"/><circle class="pa" cx="184.4" cy="78.0" r="4"/><circle class="pa" cx="142.2" cy="75.5" r="4"/><circle class="pa" cx="166.7" cy="75.5" r="4"/><circle class="pa" cx="197.8" cy="75.5" r="4"/><circle class="pa" cx="175.6" cy="73.0" r="4"/><circle class="pa" cx="177.8" cy="73.0" r="4"/><circle class="pa" cx="182.2" cy="73.0" r="4"/><circle class="pa" cx="184.4" cy="73.0" r="4"/><circle class="pa" cx="186.7" cy="73.0" r="4"/><circle class="pa" cx="153.3" cy="70.5" r="4"/><circle class="pa" cx="173.3" cy="62.9" r="4"/><circle class="pa" cx="188.9" cy="62.9" r="4"/><circle class="pa" cx="131.1" cy="60.4" r="4"/><circle class="pa" cx="206.7" cy="60.4" r="4"/><circle class="pa" cx="135.6" cy="57.9" r="4"/><circle class="pa" cx="148.9" cy="40.3" r="4"/><circle class="pb" cx="122.2" cy="42.8" r="5.5"/></svg>
@@ -340,13 +339,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Phalloceros titthos</h3>
         <p class="common">Another barrigudinho, a close relative of the one above.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 1.4%. That is small: it may be ordinary variation inside one species, so the case is weaker.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:AAB5570 (13), BOLD:AGE7052 (3). ASAP finds a gap at the BIN boundary (p = 0.03).</p>
           <p>The two largest groups were collected apart (8 and 2 sites, closest 83 km).</p>
           <p>Nothing published found. Its main BIN also holds one P. harpagos record.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Phalloceros titthos."><use href="#states"/><circle class="pa" cx="204.4" cy="118.3" r="4"/><circle class="pa" cx="191.1" cy="110.7" r="4"/><circle class="pa" cx="202.2" cy="105.7" r="4"/><circle class="pa" cx="182.2" cy="103.2" r="4"/><circle class="pa" cx="202.2" cy="100.7" r="4"/><circle class="pa" cx="202.2" cy="95.6" r="4"/><circle class="pa" cx="206.7" cy="95.6" r="4"/><circle class="pa" cx="204.4" cy="88.1" r="4"/><circle class="pb" cx="211.1" cy="70.5" r="5.5"/><circle class="pb" cx="213.3" cy="70.5" r="5.5"/></svg>
@@ -367,13 +364,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Synbranchus marmoratus</h3>
         <p class="common">The muçum, or marbled swamp eel: an eel-shaped fish that breathes air and can wait out a dry spell in the mud.</p>
-        <p class="plain">Its barcodes fall into three groups that differ by 7.3%. That is larger than the difference between many pairs of fish already recognised as separate species.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:AAB6824 (4), BOLD:AAB6826 (3), BOLD:ADI2293 (1). ASAP finds a gap at the BIN boundary (p = 4e-05).</p>
           <p>The second group is known from 1 site, 176 km from the first.</p>
           <p>Published: Pereira et al. 2013, Table 3; Rosso et al. 2012. 2.9 to 8.0%, a known species complex.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Synbranchus marmoratus."><use href="#states"/><circle class="pa" cx="104.4" cy="7.6" r="4"/><circle class="pa" cx="104.4" cy="5.0" r="4"/><circle class="pb" cx="122.2" cy="42.8" r="5.5"/></svg>
@@ -394,13 +389,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Piabina argentea</h3>
         <p class="common">A piaba: a small silvery fish of rivers and streams.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 1.7%. That is small: it may be ordinary variation inside one species, so the case is weaker.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:AAA5781 (16), BOLD:ADJ7993 (10). ASAP's gap at the BIN boundary is weak (p = 0.26).</p>
           <p>The second group is known from 1 site, 11 km from the first.</p>
           <p>Published: Pereira et al. 2013, Table 3. 1.9 to 5.6%, 6 subclusters in the Upper Paraná.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Piabina argentea."><use href="#states"/><circle class="pa" cx="117.8" cy="68.0" r="4"/><circle class="pa" cx="157.8" cy="37.8" r="4"/><circle class="pa" cx="131.1" cy="30.2" r="4"/><circle class="pa" cx="151.1" cy="27.7" r="4"/><circle class="pb" cx="151.1" cy="25.2" r="5.5"/></svg>
@@ -421,13 +414,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Pimelodus maculatus</h3>
         <p class="common">The mandi-amarelo: a spotted catfish common in the Paraná and Uruguay basins.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 1.7%. That is small: it may be ordinary variation inside one species, so the case is weaker.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:AAB6504 (86), BOLD:AFE7458 (8). ASAP's gap at the BIN boundary is weak (p = 0.27).</p>
           <p>The two largest groups were collected at a shared site (11 and 1 sites).</p>
           <p>Published: Biology 2024, 13:162, doi:10.3390/biology13030162. Several MOTUs across basins.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Pimelodus maculatus."><use href="#states"/><circle class="pa" cx="55.6" cy="140.9" r="4"/><circle class="pa" cx="153.3" cy="140.9" r="4"/><circle class="pa" cx="146.7" cy="135.9" r="4"/><circle class="pa" cx="137.8" cy="130.9" r="4"/><circle class="pa" cx="133.3" cy="128.4" r="4"/><circle class="pa" cx="128.9" cy="125.8" r="4"/><circle class="pa" cx="131.1" cy="125.8" r="4"/><circle class="pa" cx="137.8" cy="123.3" r="4"/><circle class="pa" cx="73.3" cy="75.5" r="4"/><circle class="pa" cx="164.4" cy="17.6" r="4"/><circle class="pa" cx="104.4" cy="7.6" r="4"/><circle class="pb" cx="164.4" cy="17.6" r="5.5"/></svg>
@@ -448,13 +439,11 @@ h1 em { font-style: italic; color: var(--voice-ink); }
       <div class="text">
         <h3>Apareiodon affinis</h3>
         <p class="common">The canivete: a small fish that scrapes algae off river stones.</p>
-        <p class="plain">Its barcodes fall into two groups that differ by 5.8%. That is larger than the difference between many pairs of fish already recognised as separate species.</p>
-        <div class="spec mono">
-          <span class="k">For specialists</span>
+        <details class="spec mono"><summary class="k">For specialists</summary>
           <p>BINs: BOLD:ABW1944 (5), BOLD:AAD2370 (3). ASAP's gap at the BIN boundary is weak (p = 0.19).</p>
           <p>The second group is known from 1 site, 479 km from the first.</p>
           <p>Published: PMC6726146. Two genetic groups and an undescribed species.</p>
-        </div>
+        </details>
       </div>
       <figure class="mini plate paper">
         <svg viewBox="0 0 220 289" width="220" height="289" role="img" aria-label="Map of Paraná, Santa Catarina and Rio Grande do Sul with the collecting sites of the two barcode groups of Apareiodon affinis."><use href="#states"/><circle class="pa" cx="104.4" cy="128.4" r="4"/><circle class="pa" cx="106.7" cy="118.3" r="4"/><circle class="pb" cx="100.0" cy="10.1" r="5.5"/></svg>
@@ -466,75 +455,57 @@ h1 em { font-style: italic; color: var(--voice-ink); }
   <section class="section" id="limits" aria-labelledby="limits-h">
     <div class="wrap head"><span class="k mono">Read this first</span><h2 id="limits-h">What this is not</h2></div>
     <div class="wrap body">
-      <ul class="limits"><li><b>These are candidates, not new species.</b> One gene can be misleading: hybridisation, old shared ancestry or a mislabelled specimen can all produce two groups. Naming a species takes more genes and a close look at the animals.</li><li><b>The data are thin.</b> Only fish and insects have enough barcodes in the south, and most species have fewer than five. Frogs, where the idea started, have none that qualify.</li><li><b>It finds what is already known.</b> Tested against published cases written down before the run, it found them. How often it raises a false alarm is not yet measured.</li><li><b>Insects are not reviewed yet.</b> 34 insect names pass the same checks and wait for the same reading the fish got.</li></ul>
+      <ul class="limits"><li><b>These are candidates, not new species.</b> One gene can mislead; naming a species takes more.</li><li><b>The data are thin.</b> Most species have fewer than five barcodes here.</li><li><b>Tested on known cases, it found them.</b> Its false-alarm rate is not measured yet.</li><li><b>Insects are not reviewed yet.</b> 34 names wait for the same reading.</li></ul>
     </div>
   </section>
 
   <section class="section" aria-labelledby="misid-h">
-    <div class="wrap head"><span class="k mono">Set aside</span><div><h2 id="misid-h">Set aside</h2><p>Names whose extra barcodes sit in another species' group, or split by a distance usual between genera with another genus in the same group. These look more like labelling problems than hidden species, and are listed for whoever holds the specimens.</p></div></div>
+    <div class="wrap head"><span class="k mono">Set aside</span><div><h2 id="misid-h">Set aside</h2><p>Three names that look more like labelling problems than hidden species.</p></div></div>
     <div class="wrap body">
-      <ul class="misid mono"><li><i>Astyanax laticeps</i>: BOLD:ABU7559 / BOLD:AAB3435, 16.8%, <i>Deuterodon langei</i>. Southern barcodes of the complex do support splitting P. laticeps, but a 17% gap with a Deuterodon record in the same BIN fits misidentified vouchers better than a cryptic Astyanax.</li><li><i>Corydoras paleatus</i>: 2 &rarr; BOLD:AAC7264 (<i>Corydoras ehrhardti</i>). Rosso et al. report over 3% between southern C. paleatus and the rest of the range, so these records may be a lineage rather than a misidentification.</li><li><i>Rhamdia quelen</i>: 5 &rarr; BOLD:AAA6323 (<i>Rhamdia voulezi</i>), 4 &rarr; BOLD:ACF1690 (<i>Rhamdia branneri</i>). Ribolli et al. work on Rhamdia lineages with BINs on SC material; either the vouchers are R. voulezi and R. branneri, or the three names do not separate in COI.</li></ul>
+      <details class="misid-fold mono"><summary>The three names</summary><ul class="misid mono"><li><i>Astyanax laticeps</i>: BOLD:ABU7559 / BOLD:AAB3435, 16.8%, <i>Deuterodon langei</i>. Southern barcodes of the complex do support splitting P. laticeps, but a 17% gap with a Deuterodon record in the same BIN fits misidentified vouchers better than a cryptic Astyanax.</li><li><i>Corydoras paleatus</i>: 2 &rarr; BOLD:AAC7264 (<i>Corydoras ehrhardti</i>). Rosso et al. report over 3% between southern C. paleatus and the rest of the range, so these records may be a lineage rather than a misidentification.</li><li><i>Rhamdia quelen</i>: 5 &rarr; BOLD:AAA6323 (<i>Rhamdia voulezi</i>), 4 &rarr; BOLD:ACF1690 (<i>Rhamdia branneri</i>). Ribolli et al. work on Rhamdia lineages with BINs on SC material; either the vouchers are R. voulezi and R. branneri, or the three names do not separate in COI.</li></ul></details>
       <div class="wanted mono">
         <div class="catno"><b>Wanted</b><span>taxonomists who know southern fish</span></div>
-        <p><b>Which of these are worth a look?</b> If you work on any of these groups, a one-line answer helps decide what to examine next. A candidate that holds up could become a co-authored description.</p>
+        <p><b>Which of these are worth a look?</b> If you work on southern fish, a one-line answer helps. A candidate that holds up could become a co-authored description.</p>
         <div class="links"><a class="ln" href="mailto:contact@eduardofrafre.com?subject=Hidden%20Lineages">Write about Hidden Lineages</a></div>
       </div>
       <p class="source mono">Data: public records from <a class="ln" href="https://boldsystems.org" target="_blank" rel="noopener">BOLD Systems</a>, downloaded 2026-10-01. Species delimitation with ASAP (Puillandre et al. 2021). State outlines from IBGE. Generated 2026-10-04.</p>
     </div>
   </section>
 
-  <section class="section" id="support" aria-labelledby="give-h">
-    <div class="wrap head"><span class="k mono">Support</span><h2 id="give-h">Free, and staying free.</h2></div>
-    <div class="wrap body give">
-      <div>
-        <p>This page and the candidate list are free and stay free. A donation pays for hosting, data and the hours the insect review still needs.</p>
-        <div class="links mono pay-paypal"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">Donate by PayPal</a></div>
-        <div class="pix mono pay-pix">
-          <button type="button" class="ln" data-copy="00020126580014br.gov.bcb.pix01369e1497a0-9a23-4910-9937-f5cec7c85f4b5204000053039865802BR5915EDUARDO FREITAS6008CRICIUMA62070503***6304BCD9" data-done="Copied, paste it in your bank app">Copy the Pix code</button><span class="dim" role="status"></span>
-          <p class="dim">Pix key <code>9e1497a0-9a23-4910-9937-f5cec7c85f4b</code></p>
-        </div>
-      </div>
-      <div>
-        <div class="pay-switch mono" role="group" aria-label="Payment method" hidden><button type="button" data-pay="pix">Pix</button><button type="button" data-pay="paypal">PayPal</button></div>
-        <a class="qr pay-paypal" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
-          <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="QR code for the PayPal donation page"><figcaption class="mono dim">scan to donate</figcaption></figure>
-        </a>
-        <figure class="qr pay-pix"><img src="/assets/donate-pix.svg" width="132" height="132" alt="Pix QR code for a donation of any amount"><figcaption class="mono dim">scan with your bank app</figcaption></figure>
-        <script>
-        // Pix has no web link, only a code: on a phone the way in is copying it into
-        // the bank app. Brazilian pages open on Pix, the rest on PayPal, unless the
-        // link asks for one with ?pay=pix or ?pay=paypal.
-        (function () {
-          var box = document.currentScript.parentElement.parentElement, sw = box.querySelector(".pay-switch");
-          function pick(m) {
-            box.dataset.pay = m;
-            sw.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.pay === m); });
-          }
-          sw.hidden = false;
-          sw.addEventListener("click", function (e) { if (e.target.dataset.pay) pick(e.target.dataset.pay); });
-          var ask = /[?&]pay=(pix|paypal)\b/.exec(location.search);
-          pick(ask ? ask[1] : "paypal");
-          var btn = box.querySelector("[data-copy]"), status = btn.nextElementSibling;
-          btn.addEventListener("click", function () {
-            var done = function () { status.textContent = " " + btn.dataset.done; setTimeout(function () { status.textContent = ""; }, 4000); };
-            var select = function () { getSelection().selectAllChildren(box.querySelector(".pix code")); };
-            navigator.clipboard ? navigator.clipboard.writeText(btn.dataset.copy).then(done, select) : select();
-          });
-        })();
-        </script>
-      </div>
-    </div>
-  </section>
 </main>
-<footer>
-  <div class="wrap hub">
-    <div class="mono dim">Lab</div>
+
+<footer class="ft">
+  <section id="support" class="wrap ft-give" aria-labelledby="ft-give-h">
     <div>
-      <h2>More questions about living things, worked out in software.</h2>
-      <div class="links mono"><a class="ln arrow" href="https://lab.eduardofrafre.com/">Back to the lab</a><a class="ln" href="mailto:contact@eduardofrafre.com">contact@eduardofrafre.com</a></div>
+      <p class="k">Support</p>
+      <h2 id="ft-give-h">Free, and staying free.</h2>
+      <p class="lead">A donation pays for hosting, data and the hours the insect review still needs.</p>
+      <p class="ft-ways"><a href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">PayPal</a><button type="button" data-pix="00020126580014br.gov.bcb.pix01369e1497a0-9a23-4910-9937-f5cec7c85f4b5204000053039865802BR5915EDUARDO FREITAS6008CRICIUMA62070503***6304BCD9" data-done="Copied, paste it in your bank app">Copy the Pix code</button><span role="status"></span></p>
     </div>
+    <div class="ft-qr">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener"><figure data-pay="paypal"><img src="/assets/donate-qr.svg" width="132" height="132" alt="QR code for the PayPal donation page"><figcaption>PayPal</figcaption></figure></a>
+      <figure data-pay="pix"><img src="/assets/donate-pix.svg" width="132" height="132" alt="Pix QR code for a donation of any amount"><figcaption>Pix</figcaption></figure>
+    </div>
+    <script>
+    // Pix has no web link, only a code: on a phone the way in is copying it into
+    // the bank app. A link with ?pay=pix or ?pay=paypal (the READMEs) marks that QR.
+    (function () {
+      var box = document.currentScript.parentElement, btn = box.querySelector("[data-pix]"), st = btn.nextElementSibling;
+      var ask = /[?&]pay=(pix|paypal)\b/.exec(location.search);
+      if (ask) box.querySelector('[data-pay="' + ask[1] + '"]').classList.add("on");
+      btn.addEventListener("click", function () {
+        var done = function () { st.textContent = btn.dataset.done; setTimeout(function () { st.textContent = ""; }, 4000); };
+        navigator.clipboard ? navigator.clipboard.writeText(btn.dataset.pix).then(done) : prompt("Pix key", btn.dataset.pix);
+      });
+    })();
+    </script>
+  </section>
+  <div class="wrap ft-cols">
+    <div><p><b>Eduardo Freitas</b></p><p>Santa Catarina, Brazil</p><p>© 2026</p></div>
+    <nav aria-label="Sites"><p class="k">Sites</p><ul><li><a href="https://eduardofrafre.com/">eduardofrafre.com</a></li><li><a href="https://lab.eduardofrafre.com/">Lab</a></li><li><a href="https://tools.eduardofrafre.com/">Tools</a></li><li><a href="https://studio.eduardofrafre.com/">Studio</a></li></ul></nav>
+    <div><p class="k">Contact</p><ul><li><a href="mailto:contact@eduardofrafre.com">contact@eduardofrafre.com</a></li><li><a href="https://github.com/eduardofrafre" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/eduardofrafre" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+    <div><p class="k">Colophon</p><p>Set in iA Writer Quattro and Mono, in the colours of Rei.</p></div>
   </div>
-  <div class="wrap colophon mono dim"><p>Set in iA Writer Quattro and Mono, in the colours of Rei.</p><p>© 2026 Eduardo Freitas</p></div>
 </footer>
 </body>
 </html>
