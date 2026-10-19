@@ -55,16 +55,18 @@ def outlines(width):
 TEXT = {
     "en": {
         "lang": "en", "root": "", "other": "pt-br/", "other_label": "PT", "here_label": "EN",
+        "nav_label": "Sites and sections", "tools": "Tools",
+        "sections": [("candidates", "Candidates"), ("limits", "Limits"), ("support", "Support")],
+        "crumb": "hidden lineages", "theme": "Light theme", "og_locale": ("en_US", "pt_BR"), "og_image": "og.png",
         "other_title": "Versão em português",
         "title": "Hidden Lineages · Lab · Eduardo Freitas",
         "description": "Fish of southern Brazil whose public DNA barcodes suggest more than one species under a "
                        "single name: seven candidates, with the evidence behind each.",
         "kicker": "Lab notebook · ECO-02 · Southern Atlantic Forest",
         "h1": "Some fish may be <em>two species</em> under one name.",
-        "lede": "A DNA barcode is a short stretch of one gene that works like a species fingerprint. When animals "
-                "carrying the same name turn out to have two clearly different fingerprints, the name may be "
-                "hiding a species nobody has described. This project reads every public barcode from Paraná, "
-                "Santa Catarina and Rio Grande do Sul and lists the names most likely to be hiding one.",
+        "lede": "A DNA barcode works like a species fingerprint. Where one name carries two clearly different "
+                "fingerprints, it may be hiding a species nobody has described. This reads every public barcode "
+                "from Paraná, Santa Catarina and Rio Grande do Sul and lists the names most likely to.",
         "facts": [("records from the three states", "south"), ("usable DNA barcodes", "usable"),
                   ("names split across groups", "split"), ("fish candidates", "cands")],
         "status": "exploration",
@@ -79,11 +81,10 @@ TEXT = {
                 ("Second opinion", "ASAP", "An independent method checks whether there is a real gap between "
                  "the groups, or only noise."),
                 ("Candidates", "for a specialist", "What survives, with the evidence next to it.")],
-        "fig2": "<b>Fig. 2.</b> Each step removes a kind of false alarm.",
+        "fig2": "<b>Fig. 1.</b> Each step removes a kind of false alarm.",
         "cands_k": "The candidates",
         "cands_h": "Seven fish worth a second look",
-        "cands_p": "Ordered by how strongly the second method backs the split. None of these is a new species "
-                   "yet: each is a question for someone who can examine the fish.",
+        "cands_p": "None is a new species yet: each is a question for someone who can examine the fish.",
         "groups_n": {2: "two", 3: "three", 4: "four"},
         "split": "Its barcodes fall into {k} groups that differ by {med}%.",
         "tier_deep": "That is larger than the difference between many pairs of fish already recognised as "
@@ -111,23 +112,17 @@ TEXT = {
         "legend_a": "largest group", "legend_b": "second group",
         "limits_k": "Read this first",
         "limits_h": "What this is not",
-        "limits": ["<b>These are candidates, not new species.</b> One gene can be misleading: hybridisation, "
-                   "old shared ancestry or a mislabelled specimen can all produce two groups. Naming a species "
-                   "takes more genes and a close look at the animals.",
-                   "<b>The data are thin.</b> Only fish and insects have enough barcodes in the south, and most "
-                   "species have fewer than five. Frogs, where the idea started, have none that qualify.",
-                   "<b>It finds what is already known.</b> Tested against published cases written down before "
-                   "the run, it found them. How often it raises a false alarm is not yet measured.",
-                   "<b>Insects are not reviewed yet.</b> {ins} insect names pass the same checks and wait for "
-                   "the same reading the fish got."],
+        "limits": ["<b>These are candidates, not new species.</b> One gene can mislead; naming a species takes more.",
+                   "<b>The data are thin.</b> Most species have fewer than five barcodes here.",
+                   "<b>Tested on known cases, it found them.</b> Its false-alarm rate is not measured yet.",
+                   "<b>Insects are not reviewed yet.</b> {ins} names wait for the same reading."],
         "misid_h": "Set aside",
-        "misid_p": "Names whose extra barcodes sit in another species' group, or split by a distance usual "
-                   "between genera with another genus in the same group. These look more like labelling "
-                   "problems than hidden species, and are listed for whoever holds the specimens.",
+        "misid_p": "Three names that look more like labelling problems than hidden species.",
+        "misid_fold": "The three names",
         "wanted_b": "Wanted", "wanted_s": "taxonomists who know southern fish",
-        "wanted_p": "<b>Which of these are worth a look?</b> If you work on any of these groups, a one-line "
-                    "answer helps decide what to examine next. A candidate that holds up could become a "
-                    "co-authored description.",
+        "wanted_p": "<b>Which of these are worth a look?</b> If you work on southern fish, a one-line answer "
+                    "helps. A candidate that holds up could become a co-authored description.",
+        "mail": "contact@eduardofrafre.com",
         "wanted_mail": "Write about Hidden Lineages",
         "give_k": "Support", "give_h": "Free, and staying free.",
         "give_p": "This page and the candidate list are free and stay free. A donation pays for hosting, "
@@ -146,17 +141,19 @@ TEXT = {
     },
     "pt": {
         "lang": "pt-BR", "root": "../", "other": "../", "other_label": "EN", "here_label": "PT",
+        "nav_label": "Sites e seções", "tools": "Ferramentas",
+        "sections": [("candidates", "Candidatos"), ("limits", "Limites"), ("support", "Apoio")],
+        "crumb": "linhagens ocultas", "theme": "Tema claro", "og_locale": ("pt_BR", "en_US"), "og_image": "og-pt.png",
         "other_title": "English version",
         "title": "Linhagens Ocultas · Lab · Eduardo Freitas",
         "description": "Peixes do Sul do Brasil cujos códigos de barras de DNA públicos sugerem mais de uma espécie "
                        "sob um único nome: sete candidatas, com as evidências de cada uma.",
         "kicker": "Caderno do lab · ECO-02 · Mata Atlântica do Sul",
         "h1": "Alguns peixes podem ser <em>duas espécies</em> com um só nome.",
-        "lede": "Um código de barras de DNA é um trecho curto de um gene que funciona como a impressão digital de "
-                "uma espécie. Quando animais com o mesmo nome mostram duas impressões claramente diferentes, o "
-                "nome pode estar escondendo uma espécie que ninguém descreveu. Este projeto lê todos os códigos "
-                "de barras públicos do Paraná, de Santa Catarina e do Rio Grande do Sul e lista os nomes com mais "
-                "chance de esconder uma.",
+        "lede": "Um código de barras de DNA funciona como a impressão digital de uma espécie. Quando um nome "
+                "carrega duas impressões claramente diferentes, ele pode estar escondendo uma espécie que ninguém "
+                "descreveu. Este projeto lê todos os códigos de barras públicos do Paraná, de Santa Catarina e do "
+                "Rio Grande do Sul e lista os nomes com mais chance de esconder uma.",
         "facts": [("registros dos três estados", "south"), ("códigos de barras utilizáveis", "usable"),
                   ("nomes divididos em grupos", "split"), ("peixes candidatos", "cands")],
         "status": "exploração",
@@ -173,11 +170,10 @@ TEXT = {
                 ("Segunda opinião", "ASAP", "Um método independente verifica se há uma lacuna real entre os "
                  "grupos ou só ruído."),
                 ("Candidatas", "para um especialista", "O que sobra, com a evidência ao lado.")],
-        "fig2": "<b>Fig. 2.</b> Cada etapa tira um tipo de alarme falso.",
+        "fig2": "<b>Fig. 1.</b> Cada etapa tira um tipo de alarme falso.",
         "cands_k": "As candidatas",
         "cands_h": "Sete peixes que merecem um segundo olhar",
-        "cands_p": "Em ordem de quanto o segundo método apoia a divisão. Nenhuma delas é espécie nova ainda: cada "
-                   "uma é uma pergunta para quem pode examinar os peixes.",
+        "cands_p": "Nenhuma é espécie nova ainda: cada uma é uma pergunta para quem pode examinar os peixes.",
         "groups_n": {2: "dois", 3: "três", 4: "quatro"},
         "split": "Os códigos de barras caem em {k} grupos que diferem {med}%.",
         "tier_deep": "É mais do que a diferença entre muitos pares de peixes já reconhecidos como espécies "
@@ -206,24 +202,17 @@ TEXT = {
         "legend_a": "maior grupo", "legend_b": "segundo grupo",
         "limits_k": "Leia antes",
         "limits_h": "O que isto não é",
-        "limits": ["<b>São candidatas, não espécies novas.</b> Um gene só pode enganar: hibridação, ancestralidade "
-                   "antiga em comum ou um exemplar mal rotulado podem produzir dois grupos. Nomear uma espécie "
-                   "exige mais genes e um olhar atento sobre os animais.",
-                   "<b>Os dados são poucos.</b> Só peixes e insetos têm códigos de barras suficientes no Sul, e "
-                   "a maioria das espécies tem menos de cinco. Os sapos, onde a ideia começou, não têm nenhuma "
-                   "que se qualifique.",
-                   "<b>Encontra o que já se sabe.</b> Testado contra casos publicados, anotados antes da rodada, "
-                   "encontrou-os. Com que frequência dá alarme falso ainda não foi medido.",
-                   "<b>Os insetos ainda não foram revisados.</b> {ins} nomes de insetos passam pelas mesmas "
-                   "verificações e esperam a mesma leitura que os peixes tiveram."],
+        "limits": ["<b>São candidatas, não espécies novas.</b> Um gene só pode enganar; nomear uma espécie exige mais.",
+                   "<b>Os dados são poucos.</b> A maioria das espécies tem menos de cinco códigos aqui.",
+                   "<b>Testado em casos conhecidos, encontrou-os.</b> A taxa de alarme falso ainda não foi medida.",
+                   "<b>Os insetos ainda não foram revisados.</b> {ins} nomes esperam a mesma leitura."],
         "misid_h": "Postos de lado",
-        "misid_p": "Nomes cujos códigos extras estão no grupo de outra espécie, ou que se dividem a uma distância "
-                   "comum entre gêneros com outro gênero no mesmo grupo. Parecem mais problemas de rótulo do que "
-                   "espécies ocultas, e ficam listados para quem guarda os exemplares.",
+        "misid_p": "Três nomes que parecem mais problemas de rótulo do que espécies ocultas.",
+        "misid_fold": "Os três nomes",
         "wanted_b": "Procura-se", "wanted_s": "taxonomistas de peixes do Sul",
-        "wanted_p": "<b>Quais destas valem um olhar?</b> Se você trabalha com algum destes grupos, uma resposta "
-                    "de uma linha ajuda a decidir o que examinar primeiro. Uma candidata que se sustente pode "
-                    "virar uma descrição em coautoria.",
+        "wanted_p": "<b>Quais destas valem um olhar?</b> Se você trabalha com peixes do Sul, uma resposta de uma "
+                    "linha ajuda. Uma candidata que se sustente pode virar uma descrição em coautoria.",
+        "mail": "contato@eduardofrafre.com",
         "wanted_mail": "Escrever sobre Linhagens Ocultas",
         "give_k": "Apoiar", "give_h": "Gratuito, e continua assim.",
         "give_p": "Esta página e a lista de candidatas são gratuitas e continuam gratuitas. Uma doação paga "
@@ -247,83 +236,120 @@ CSS = """
 @font-face { font-family: Quattro; src: url(/assets/fonts/iAWriterQuattroS-Italic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: Quattro; src: url(/assets/fonts/iAWriterQuattroS-Bold.woff2) format("woff2"); font-weight: 700; font-display: swap; }
 @font-face { font-family: Mono; src: url(/assets/fonts/iAWriterMonoS-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
-/* Tokens: Rei, as on the lab. One voice (blue), true black, hairlines instead of panels. */
+/* Tokens: Rei, as on the lab. One voice (blue), true black, hairlines instead
+   of panels. Light is warm paper and a deeper blue; the maps are drawn with
+   these tokens, so they follow the theme. */
 :root {
-  --ground: #000; --raised: #0b0b0c; --line: #1f2024; --line-strong: #34363d; --grid: #0e1016;
-  --ink: #e2e8e9; --ink-2: #aaaeaf; --ink-3: #7c7879; --voice: #617bb9; --voice-ink: #8ea3d6; --signal: #87deff;
+  --ground: #000; --raised: #0b0b0c; --line: #1f2024; --line-strong: #34363d;
+  --ink: #e2e8e9; --ink-2: #aaaeaf; --ink-3: #7c7879; --voice: #617bb9; --voice-ink: #8ea3d6;
+  --signal: #87deff; --signal-fill: #87deff; --violet: #9987c3; --dot: #3a3e48;
   --sans: Quattro, ui-sans-serif, system-ui, sans-serif; --mono: Mono, ui-monospace, monospace;
   --gutter: clamp(16px, 5vw, 72px); --measure: 36rem;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --ground: #f3f3f0; --raised: #e8e8e3; --line: #dcdcd5; --line-strong: #c3c3bb;
+  --ink: #121315; --ink-2: #45474d; --ink-3: #63656c; --voice: #2a48d4; --voice-ink: #2a48d4;
+  --signal: #086a98; --signal-fill: #5bbfe8; --violet: #5d4a9c; --dot: #c2c2b9;
+  color-scheme: light;
 }
 * { box-sizing: border-box; margin: 0; }
-html { background: var(--ground); color: var(--ink); -webkit-text-size-adjust: 100%; }
+html { background: var(--ground); color: var(--ink); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body { font: 400 17px/1.6 var(--sans); background: var(--ground); overflow-wrap: break-word; }
 ::selection { background: var(--voice); color: #fff; }
 a { color: inherit; text-decoration: none; }
+p { text-wrap: pretty; }
 svg { display: block; max-width: 100%; height: auto; }
 :focus-visible { outline: 1px solid var(--signal); outline-offset: 4px; }
 .mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; line-height: 1.7; }
 .dim { color: var(--ink-3); }
 .wrap { padding-inline: var(--gutter); max-width: 1440px; margin-inline: auto; }
-.paper { background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; background-position: -1px -1px; }
-.ln { background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; color: var(--voice-ink); transition: color .2s; padding-bottom: 1px; }
+.ln { color: var(--voice-ink); text-decoration: underline 1px; text-underline-offset: 4px; transition: color .2s; }
 .ln:hover { color: var(--signal); }
 .arrow::after { content: " ->"; font-family: var(--mono); font-size: .85em; }
+
+/* ── Masthead: the same on every family site ─────────────────────
+   The domain goes home, the crumbs say where you are, the three sites
+   come first, then this page's sections, the language and the theme.
+   On a phone the menu is one row under the domain. */
 .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; padding-block: 22px; border-bottom: 1px solid var(--line); }
-.brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.name { font-weight: 700; }
+.brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+.name { color: var(--ink); transition: color .2s; }
 .name:hover, .crumb:hover { color: var(--voice-ink); }
 .crumb { color: var(--ink-2); transition: color .2s; }
 .here { color: var(--voice-ink); }
-.lang { color: var(--ink-3); }
-.lang a:hover { color: var(--ink); }
+.top nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 28px; }
+.top nav .out { display: flex; gap: 28px; padding-right: 28px; border-right: 1px solid var(--line-strong); }
+.top nav a { color: var(--ink-2); transition: color .2s; }
+.top nav a:hover { color: var(--ink); }
+.top nav .out [aria-current] { color: var(--voice-ink); }
+.lang { color: var(--ink-3); white-space: nowrap; }
+.lang a { color: var(--ink-3) !important; }
+.lang a:hover { color: var(--ink) !important; }
 .lang [aria-current] { color: var(--ink); }
-.open { border-bottom: 1px solid var(--line); }
-.open .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 48px; align-items: end; padding-block: clamp(56px, 10vh, 120px) clamp(40px, 7vh, 80px); }
-.kicker { color: var(--ink-3); margin-bottom: 22px; }
-h1 { font-weight: 400; font-size: clamp(34px, 5vw, 68px); line-height: 1.06; letter-spacing: -.028em; max-width: 15ch; text-wrap: balance; }
-h1 em { font-style: italic; color: var(--voice-ink); }
-.lede { color: var(--ink-2); font-size: 19px; line-height: 1.55; max-width: var(--measure); margin-top: 28px; text-wrap: pretty; }
-.facts { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; column-gap: 32px; row-gap: 14px; margin-top: 32px; padding-block: 16px; border-block: 1px solid var(--line); }
+.theme { align-self: center; display: grid; place-items: center; width: 24px; height: 24px; margin: -4px -4px -4px -12px; padding: 0; border: 0; background: none; color: var(--ink-3); cursor: pointer; transition: color .2s; }
+.theme:hover { color: var(--ink); }
+.theme svg { width: 14px; height: 14px; transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+[data-theme="light"] .theme svg { transform: rotate(180deg); }
+
+/* ── Opening: the title page and the map of every site ───────── */
+.open .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 48px; align-items: end; padding-block: clamp(72px, 12vh, 128px) clamp(56px, 9vh, 96px); }
+.kicker { color: var(--ink-3); margin-bottom: 20px; }
+h1 { font-weight: 400; font-size: clamp(34px, 4vw, 56px); line-height: 1.1; letter-spacing: -.024em; max-width: 14em; }
+h1 em { font-style: normal; color: var(--voice-ink); }
+.lede { color: var(--ink-2); font-size: 19px; line-height: 1.55; max-width: var(--measure); margin-top: 24px; }
+.facts { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 32px; }
 .facts div { display: flex; flex-direction: column; }
 .facts dt { order: 2; color: var(--ink-3); }
-.facts dd { order: 1; margin: 0; font-family: var(--sans); font-size: 26px; letter-spacing: -.02em; line-height: 1.2; }
-.plate { border: 1px solid var(--line); padding: clamp(12px, 2vw, 20px); background: var(--ground); }
+.facts dd { margin: 0; font-family: var(--sans); font-size: 30px; letter-spacing: -.02em; line-height: 1.2; color: var(--ink); font-variant-numeric: tabular-nums; }
+.plate { margin: 0; }
+.plate svg { width: 100%; padding: clamp(12px, 2vw, 24px); background: var(--raised); border: 1px solid var(--line); }
 .plate figcaption { margin-top: 12px; color: var(--ink-3); }
 .plate figcaption b { font-weight: 400; color: var(--ink-2); }
 .states path { fill: none; stroke: var(--line-strong); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.dots circle { fill: #2c3b66; }
+.dots circle { fill: var(--dot); }
 .dots .hit { fill: var(--voice-ink); }
-.section { border-bottom: 1px solid var(--line); }
-.head { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; align-items: baseline; padding-top: clamp(56px, 9vh, 104px); }
-.k { display: block; color: var(--voice-ink); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; }
-.head h2 { font-weight: 400; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.1; letter-spacing: -.02em; }
-.head p { color: var(--ink-2); margin-top: 10px; max-width: var(--measure); }
-.body { padding-block: 40px clamp(56px, 9vh, 104px); }
-.pipeline { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--line-strong); background: var(--ground); }
-.pipeline li { padding: 18px 16px 20px; border-right: 1px solid var(--line-strong); position: relative; }
-.pipeline li:last-child { border-right: 0; }
-.pipeline li:not(:last-child)::after { content: "->"; font-family: var(--mono); font-size: 12px; color: var(--voice-ink); position: absolute; right: -10px; top: 18px; background: var(--ground); padding-inline: 2px; z-index: 1; }
+
+/* ── Sections: a quiet label, then the heading ───────────────── */
+.section { border-top: 1px solid var(--line); }
+.head { padding-top: clamp(64px, 10vh, 112px); }
+.k { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+.head h2 { font-weight: 400; font-size: 28px; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
+.head p { color: var(--ink-2); margin-top: 6px; max-width: var(--measure); }
+.body { padding-block: 36px clamp(64px, 10vh, 112px); }
+.pipeline { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-block: 1px solid var(--line-strong); }
+.pipeline li { padding: 20px 20px 22px 0; }
+.pipeline li + li { padding-left: 20px; border-left: 1px solid var(--line); }
 .pipeline .n { color: var(--ink-3); display: block; }
-.pipeline h3 { font-weight: 700; font-size: 16px; margin: 2px 0 4px; }
-.pipeline .tech { color: var(--voice-ink); display: block; margin-bottom: 10px; }
-.pipeline p { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
-.entry { display: grid; grid-template-columns: 15rem minmax(0, 1fr) 15rem; gap: 0 48px; padding-block: 40px; }
-.entry + .entry { border-top: 1px dashed var(--line-strong); }
-.label { border: 1px solid var(--line-strong); align-self: start; }
-.label .catno { display: flex; justify-content: space-between; gap: 8px; padding: 9px 12px; border-bottom: 1px solid var(--line-strong); color: var(--ink-3); }
-.label .catno b { font-weight: 400; color: var(--ink); }
-.label dl { padding: 4px 12px 8px; }
-.label dl div { padding: 7px 0; }
-.label dl div + div { border-top: 1px dashed var(--line); }
-.label dt { color: var(--ink-3); font-size: 10.5px; text-transform: uppercase; letter-spacing: .12em; line-height: 1.5; }
-.label dd { margin: 0; }
-.strong { color: var(--voice-ink); }
-.text h3 { font-weight: 400; font-style: italic; font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -.012em; line-height: 1.2; }
-.text .common { color: var(--ink-2); margin-top: 10px; max-width: var(--measure); }
-.text .plain { font-size: 19px; line-height: 1.55; margin-top: 14px; max-width: var(--measure); text-wrap: pretty; }
-.spec { margin-top: 22px; padding-left: 14px; border-left: 2px solid var(--voice); max-width: var(--measure); color: var(--ink-2); }
+.pipeline h3 { font-weight: 400; font-size: 19px; margin: 4px 0 2px; }
+.pipeline .tech { color: var(--voice-ink); display: block; }
+figure > figcaption.dim { margin-top: 12px; }
+
+/* ── A candidate: the catalogue line, the fish, the map beside ── */
+.entry { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; grid-template-rows: auto 1fr; column-gap: clamp(32px, 5vw, 72px); padding-block: 40px; }
+.entry + .entry { border-top: 1px solid var(--line); }
+.entry > .label, .entry > .text { grid-column: 1; }
+.entry > .mini { grid-column: 2; grid-row: 1 / -1; }
+.label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; color: var(--ink-3); }
+.label .catno span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.label .catno b { font-weight: 400; color: var(--voice-ink); }
+.label dl { display: contents; }
+.label dl div { display: inline-flex; gap: 6px; }
+.label dt { text-transform: lowercase; }
+.label dd { margin: 0; color: var(--ink-2); }
+.label .strong { color: var(--signal); }
+.text h3 { font-weight: 400; font-style: italic; font-size: clamp(26px, 2.6vw, 32px); letter-spacing: -.015em; line-height: 1.2; margin-top: 14px; }
+.text .common { color: var(--ink-2); margin-top: 8px; max-width: var(--measure); }
+.spec { margin-top: 20px; max-width: var(--measure); color: var(--ink-2); }
 .spec p + p { margin-top: 6px; }
-.spec .k { margin-bottom: 6px; }
+.spec summary, .misid-fold summary { display: inline-flex; gap: 6px; cursor: pointer; list-style: none; color: var(--ink-2); text-transform: none; letter-spacing: .02em; font-size: 12.5px; margin: 0; transition: color .2s; }
+.spec summary::-webkit-details-marker, .misid-fold summary::-webkit-details-marker { display: none; }
+.spec summary::after, .misid-fold summary::after { content: "+"; color: var(--voice-ink); }
+.spec[open] summary::after, .misid-fold[open] summary::after { content: "\2013"; }
+.spec summary:hover, .misid-fold summary:hover { color: var(--ink); }
+.spec[open] summary { margin-bottom: 8px; }
+.misid-fold[open] summary { margin-bottom: 14px; }
+.mini svg { width: 100%; }
 .mini figcaption { margin-top: 8px; display: flex; gap: 6px 14px; flex-wrap: wrap; color: var(--ink-3); }
 .sw { display: inline-flex; align-items: center; gap: 6px; }
 .sw::before { content: ""; width: 8px; height: 8px; border-radius: 50%; }
@@ -331,69 +357,58 @@ h1 em { font-style: italic; color: var(--voice-ink); }
 .sw.b::before { border: 1.5px solid var(--ink); }
 .pa { fill: var(--voice-ink); }
 .pb { fill: none; stroke: var(--ink); stroke-width: 1.5; }
-.limits { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.limits li { border: 1px dashed var(--line-strong); padding: 16px 18px; color: var(--ink-2); }
-.limits b { color: var(--ink); font-weight: 700; }
+
+/* ── Limits, the names set aside, and the call ───────────────── */
+.limits { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid var(--line-strong); }
+.limits li { padding-block: 16px; border-bottom: 1px solid var(--line); color: var(--ink-2); }
+.limits b { color: var(--ink); font-weight: 400; }
 .misid { list-style: none; padding: 0; max-width: 52rem; }
 .misid li { padding: 12px 0; color: var(--ink-2); }
-.misid li + li { border-top: 1px dashed var(--line); }
+.misid li + li { border-top: 1px solid var(--line); }
 .misid i { color: var(--ink); }
-.wanted { margin-top: 32px; border: 1px dashed var(--line-strong); max-width: var(--measure); }
-.wanted .catno { display: flex; justify-content: space-between; gap: 8px; padding: 9px 14px; border-bottom: 1px dashed var(--line-strong); color: var(--ink-3); }
-.wanted .catno b { font-weight: 400; color: var(--voice-ink); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; }
-.wanted p { padding: 14px; color: var(--ink-2); }
-.wanted p b { color: var(--ink); }
-.wanted .links { padding: 0 14px 16px; }
-.links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
-.source { color: var(--ink-3); max-width: 52rem; margin-top: 28px; }
-.give { display: grid; grid-template-columns: 15rem minmax(0, var(--measure)) auto; gap: 24px 48px; align-items: start; }
-.give > div { grid-column: 2; }
-.give > div + div { grid-column: 3; }
-.give > div > p { color: var(--ink-2); text-wrap: pretty; }
-.qr { display: block; width: 132px; border: 1px solid var(--line-strong); padding: 8px; background: var(--raised); transition: border-color .2s; }
-.qr:hover { border-color: var(--voice); }
-.qr img { width: 100%; height: auto; image-rendering: pixelated; }
-.qr figcaption { margin-top: 6px; text-align: center; }
-.qr + .qr { margin-top: 12px; }
-.pay-switch { display: flex; width: 132px; margin-bottom: 10px; border: 1px solid var(--line-strong); }
-.pay-switch[hidden] { display: none; }
-.pay-switch button { flex: 1; font: inherit; color: var(--ink-3); background: none; border: 0; padding: 3px 0; cursor: pointer; transition: color .2s, background .2s; }
-.pay-switch button + button { border-left: 1px solid var(--line-strong); }
-.pay-switch button:hover { color: var(--ink); }
-.pay-switch [aria-pressed="true"] { color: var(--ink); background: var(--raised); }
-.pix { margin-top: 20px; }
-.pix button.ln { font: inherit; background-color: transparent; border: 0; padding: 0 0 1px; cursor: pointer; }
-.pix p { margin-top: 6px; }
-.pix code { font: inherit; color: var(--ink-2); user-select: all; overflow-wrap: anywhere; }
-/* Without the script both methods show; with it, one at a time. */
-[data-pay="paypal"] .pay-pix, [data-pay="pix"] .pay-paypal { display: none; }
-.hub { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 48px; padding-block: clamp(56px, 9vh, 96px); border-bottom: 1px solid var(--line); }
-.hub h2 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.02em; max-width: 22ch; }
-.colophon { display: flex; justify-content: space-between; gap: 12px 24px; padding-block: 24px 40px; flex-wrap: wrap; }
-@media (max-width: 1100px) {
-  .entry { grid-template-columns: 15rem minmax(0, 1fr); }
-  .mini { grid-column: 2; margin-top: 24px; max-width: 15rem; }
-}
+.wanted { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); max-width: var(--measure); }
+.wanted .catno { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--ink-3); }
+.wanted .catno b { font-weight: 400; color: var(--voice-ink); }
+.wanted p { color: var(--ink-2); margin-top: 6px; }
+.wanted p b { color: var(--ink); font-weight: 400; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px; }
+.source { color: var(--ink-3); max-width: 52rem; margin-top: 32px; }
+
+/* ── Small screens ───────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .open .wrap, .head, .hub { grid-template-columns: 1fr; gap: 24px; }
-  .entry { grid-template-columns: 1fr; gap: 20px; }
-  .text { order: 1; } .label { order: 2; } .mini { order: 3; grid-column: 1; margin-top: 0; }
+  .open .wrap { grid-template-columns: 1fr; }
+  .entry { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .entry > .mini { grid-column: 1; grid-row: auto; max-width: 28rem; margin-top: 24px; }
   .pipeline { grid-template-columns: 1fr; }
-  .pipeline li { border-right: 0; border-bottom: 1px solid var(--line-strong); }
-  .pipeline li:last-child { border-bottom: 0; }
-  .pipeline li:not(:last-child)::after { content: "v"; right: auto; left: 16px; top: auto; bottom: -11px; }
+  .pipeline li { padding-right: 0; }
+  .pipeline li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .limits { grid-template-columns: 1fr; }
-  .give { grid-template-columns: 1fr; }
-  .give > div, .give > div + div { grid-column: 1; }
-  .label dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); column-gap: 20px; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .lede, .text .plain { font-size: 17px; }
-  .facts { grid-template-columns: repeat(2, auto); }
-  .facts dd { font-size: 22px; }
+  .top { padding-block: 18px 0; row-gap: 12px; }
+  .top nav { width: 100%; flex-wrap: nowrap; align-items: center; gap: 0; padding-block: 12px; border-top: 1px solid var(--line); }
+  .top nav .out { gap: 20px; padding-right: 0; border-right: 0; }
+  .top nav > a { display: none; }
+  .lang { margin-left: auto; }
+  .theme { margin: -4px -4px -4px 16px; }
+  .open .wrap { padding-block: 48px 40px; gap: 36px; }
+  h1 { font-size: 34px; text-wrap: balance; }
+  .lede { font-size: 17px; }
+  .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+  .facts dd { font-size: 24px; }
+  .head { padding-top: 56px; }
+  .head h2 { font-size: 24px; }
+  .body { padding-block: 28px 56px; }
+  .entry { padding-block: 32px; }
+  .text h3 { font-size: 26px; }
+  .entry > .mini { max-width: none; }
+  .pipeline li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); padding-block: 14px; }
+  .pipeline li > * { grid-column: 2; }
+  .pipeline .n { grid-column: 1; grid-row: 1 / span 2; padding-top: 4px; }
+  .pipeline h3 { margin-top: 0; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
 """
 
 
@@ -437,7 +452,28 @@ def mini(coords_a, coords_b, alt):
 # Shared with the other sites under eduardofrafre.com: the root follows the
 # browser language, and the icon is this page's mark in the family palette.
 LANG_SCRIPT = '<script>\n// The root follows the browser\'s language until a visitor picks one with the\n// EN / PT switch. The pick is a cookie on eduardofrafre.com, so it carries over\n// to every subdomain.\n(function () {\n  var host = location.hostname, domain = /(^|\\.)eduardofrafre\\.com$/.test(host) ? "; Domain=eduardofrafre.com" : "";\n  document.addEventListener("click", function (e) {\n    var a = e.target.closest && e.target.closest("a[hreflang]");\n    if (!a || a.host !== location.host) return;\n    var pick = /^pt/i.test(a.hreflang) ? "pt" : "en";\n    document.cookie = "lang=" + pick + domain + "; Path=/; Max-Age=31536000; SameSite=Lax";\n  });\n  if (/^\\/pt-br(\\/|$)/.test(location.pathname)) return;\n  var m = document.cookie.match(/(?:^|; )lang=(en|pt)/), lang = m && m[1];\n  if (!lang) {\n    var list = navigator.languages || [navigator.language || ""];\n    for (var i = 0; i < list.length; i++) {\n      var code = String(list[i]).slice(0, 2).toLowerCase();\n      if (code === "pt" || code === "en") { lang = code; break; }\n    }\n  }\n  if (lang === "pt") location.replace("/pt-br/" + location.search + location.hash);\n})();\n</script>\n'
-FAVICON = '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Crect width=\'24\' height=\'24\' fill=\'%23000\'/%3E%3Cpath d=\'M3 11h5M8 4v14M8 4h13M8 17h4M12 13v8M12 13h9\' fill=\'none\' stroke=\'%238ea3d6\' stroke-width=\'2\'/%3E%3Cpath d=\'M12 21h9\' stroke=\'%2387deff\' stroke-width=\'2.4\'/%3E%3C/svg%3E">\n'
+FAVICON = '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 48 48\'%3E%3Cstyle%3E.s%7Bfill:none;stroke:%232a48d4;stroke-width:4.5%7D.c%7Bfill:none;stroke:%231e9fd8;stroke-width:5%7D%40media %28prefers-color-scheme:dark%29%7B.s%7Bstroke:%238ea3d6%7D.c%7Bstroke:%2387deff%7D%7D%3C/style%3E%3Cpath class=\'s\' d=\'M5 22h11M16 7.75v28.5M16 8h27M16 36h9M25 26v18M25 26.25h18\'/%3E%3Cpath class=\'c\' d=\'M25 42h18\'/%3E%3C/svg%3E">\n'
+
+
+# Dark is the house colour; the masthead's toggle switches to light, kept in a
+# cookie on eduardofrafre.com like the language. Set before the first paint.
+THEME_SCRIPT = ('<script>\n(function () {\n  var m = document.cookie.match(/(?:^|; )theme=(light|dark)/);\n'
+                '  if (m) document.documentElement.dataset.theme = m[1];\n})();\n</script>\n')
+TOGGLE = """    <button class="theme" type="button" aria-pressed="false" aria-label="{label}" title="{label}"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg></button>
+  </nav>
+  <script>
+  (function () {{
+    var b = document.querySelector(".theme"), root = document.documentElement, meta = document.querySelector('meta[name="theme-color"]');
+    var domain = /(^|\\.)eduardofrafre\\.com$/.test(location.hostname) ? "; Domain=eduardofrafre.com" : "";
+    function show() {{ var light = root.dataset.theme === "light"; b.setAttribute("aria-pressed", light); if (meta) meta.content = light ? "#f3f3f0" : "#000000"; }}
+    b.addEventListener("click", function () {{
+      root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+      document.cookie = "theme=" + root.dataset.theme + domain + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      show();
+    }});
+    show();
+  }})();
+  </script>"""
 
 
 def page(lang, d, counts, all_sites, insect_candidates):
@@ -483,15 +519,13 @@ def page(lang, d, counts, all_sites, insect_candidates):
       <div class="text">
         <h3>{escape(name)}</h3>
         <p class="common">{escape(note.get(plain_key, ''))}</p>
-        <p class="plain">{t['split'].format(k=t['groups_n'].get(len(own), len(own)), med=pct(med, lang))} {tier}</p>
-        <div class="spec mono">
-          <span class="k">{t['for_specialists']}</span>
+        <details class="spec mono"><summary class="k">{t['for_specialists']}</summary>
           <p>{t['bins'].format(bins=bins)} {asap_line}</p>
           <p>{t['where'][label].format(sa=sa, sb=sb, km=f"{km:.0f}")}</p>
           <p>{published}</p>
-        </div>
+        </details>
       </div>
-      <figure class="mini plate paper">
+      <figure class="mini plate">
         {mini(coords[name, b1], coords[name, b2], t['map_alt'].format(name=name))}
         <figcaption class="mono"><span class="sw a">{t['legend_a']}</span><span class="sw b">{t['legend_b']}</span></figcaption>
       </figure>
@@ -506,11 +540,19 @@ def page(lang, d, counts, all_sites, insect_candidates):
                           if owner(bin_names, b) not in (name, None))
         misid_items.append(f"<li><i>{escape(name)}</i>: {parts}. {escape(notes.get(name, {}).get(note_key, ''))}</li>")
 
-    facts = "".join(f"<div><dd>{num(counts[key], lang)}</dd><dt>{label}</dt></div>" for label, key in t["facts"])
-    how = "".join(f'<li><span class="n mono">{i:02d}</span><h3>{h}</h3><span class="tech mono">{tech}</span><p>{p}</p></li>'
+    facts = "".join(f"<div><dt>{label}</dt><dd>{num(counts[key], lang)}</dd></div>" for label, key in t["facts"])
+    how = "".join(f'<li><span class="n mono">{i:02d}</span><h3>{h}</h3><span class="tech mono">{tech}</span></li>'
                   for i, (h, tech, p) in enumerate(t["how"], 1))
     limits = "".join(f"<li>{x.format(ins=insect_candidates)}</li>" for x in t["limits"])
-    lab = "https://lab.eduardofrafre.com/" + ("" if lang == "en" else "pt-br/")
+    sfx = "" if lang == "en" else "pt-br/"
+    lab = "https://lab.eduardofrafre.com/" + sfx
+    out = "".join(f'<a href="https://{h}.eduardofrafre.com/{sfx}"{' aria-current="true"' if h == "lab" else ""}>{n}</a>'
+                  for h, n in (("lab", "Lab"), ("tools", t["tools"]), ("studio", "Studio")))
+    sections = "\n".join(f'    <a href="#{i}">{n}</a>' for i, n in t["sections"])
+    other_lang = "pt-BR" if lang == "en" else "en"
+    langs = (f'<span aria-current="true">EN</span> / <a href="pt-br/" hreflang="pt-BR" lang="pt-BR" title="{t["other_title"]}">PT</a>'
+             if lang == "en" else
+             f'<a href="../" hreflang="en" lang="en" title="{t["other_title"]}">EN</a> / <span aria-current="true">PT</span>')
 
     return f"""<!doctype html>
 <html lang="{t['lang']}">
@@ -520,27 +562,41 @@ def page(lang, d, counts, all_sites, insect_candidates):
 <title>{t['title']}</title>
 <meta name="description" content="{escape(t['description'])}">
 <meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eduardo Freitas">
+<meta property="og:title" content="{t['title']}">
+<meta property="og:description" content="{escape(t['description'])}">
+<meta property="og:url" content="{base}{sfx}">
+<meta property="og:image" content="{base}assets/{t['og_image']}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{t['title']}">
+<meta property="og:locale" content="{t['og_locale'][0]}">
+<meta property="og:locale:alternate" content="{t['og_locale'][1]}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{base}{'' if lang == 'en' else 'pt-br/'}">
 <link rel="alternate" hreflang="en" href="{base}">
 <link rel="alternate" hreflang="pt-BR" href="{base}pt-br/">
 <link rel="alternate" hreflang="x-default" href="{base}">
-{LANG_SCRIPT}<link rel="preload" href="/assets/fonts/iAWriterQuattroS-Regular.woff2" as="font" type="font/woff2" crossorigin>
+{LANG_SCRIPT}{THEME_SCRIPT}<link rel="preload" href="/assets/fonts/iAWriterQuattroS-Regular.woff2" as="font" type="font/woff2" crossorigin>
 {FAVICON}<style>{CSS}</style>
 </head>
 <body>
 {states_symbol()}
 <header class="wrap top">
   <div class="brand">
-    <a class="name" href="https://eduardofrafre.com">Eduardo Freitas</a>
-    <a class="mono crumb" href="{lab}">/ Lab</a>
-    <span class="mono here">/ {'Hidden Lineages' if lang == 'en' else 'Linhagens Ocultas'}</span>
+    <a class="name mono" href="https://eduardofrafre.com/{sfx}">eduardofrafre.com</a>
+    <a class="mono crumb" href="{lab}">/ lab</a>
+    <span class="mono here">/ {t['crumb']}</span>
   </div>
-  <nav class="mono" aria-label="Language">
-    <span class="lang"><span aria-current="true">{t['here_label']}</span> / <a href="{t['other']}" hreflang="{'pt-BR' if lang == 'en' else 'en'}" title="{t['other_title']}">{t['other_label']}</a></span>
-  </nav>
+  <nav class="mono" aria-label="{t['nav_label']}">
+    <span class="out">{out}</span>
+{sections}
+    <span class="lang">{langs}</span>
+{TOGGLE.format(label=t['theme'])}
 </header>
 <main>
-  <div class="open paper">
+  <div class="open">
     <div class="wrap">
       <div>
         <p class="kicker mono">{t['kicker']}</p>
@@ -563,7 +619,7 @@ def page(lang, d, counts, all_sites, insect_candidates):
     </div>
   </section>
 
-  <section class="section" aria-labelledby="cands-h">
+  <section class="section" id="candidates" aria-labelledby="cands-h">
     <div class="wrap head">
       <span class="k mono">{t['cands_k']}</span>
       <div><h2 id="cands-h">{t['cands_h']}</h2><p>{t['cands_p']}</p></div>
@@ -571,7 +627,7 @@ def page(lang, d, counts, all_sites, insect_candidates):
     {''.join(entries)}
   </section>
 
-  <section class="section" aria-labelledby="limits-h">
+  <section class="section" id="limits" aria-labelledby="limits-h">
     <div class="wrap head"><span class="k mono">{t['limits_k']}</span><h2 id="limits-h">{t['limits_h']}</h2></div>
     <div class="wrap body">
       <ul class="limits">{limits}</ul>
@@ -581,68 +637,18 @@ def page(lang, d, counts, all_sites, insect_candidates):
   <section class="section" aria-labelledby="misid-h">
     <div class="wrap head"><span class="k mono">{t['misid_h']}</span><div><h2 id="misid-h">{t['misid_h']}</h2><p>{t['misid_p']}</p></div></div>
     <div class="wrap body">
-      <ul class="misid mono">{''.join(misid_items)}</ul>
+      <details class="misid-fold mono"><summary>{t['misid_fold']}</summary><ul class="misid mono">{''.join(misid_items)}</ul></details>
       <div class="wanted mono">
         <div class="catno"><b>{t['wanted_b']}</b><span>{t['wanted_s']}</span></div>
         <p>{t['wanted_p']}</p>
-        <div class="links"><a class="ln" href="mailto:contact@eduardofrafre.com?subject=Hidden%20Lineages">{t['wanted_mail']}</a></div>
+        <div class="links"><a class="ln" href="mailto:{t['mail']}?subject=Hidden%20Lineages">{t['wanted_mail']}</a></div>
       </div>
       <p class="source mono">{t['data'].format(downloaded=downloaded, today=date.today().isoformat())}</p>
     </div>
   </section>
 
-  <section class="section" id="support" aria-labelledby="give-h">
-    <div class="wrap head"><span class="k mono">{t['give_k']}</span><h2 id="give-h">{t['give_h']}</h2></div>
-    <div class="wrap body give">
-      <div>
-        <p>{t['give_p']}</p>
-        <div class="links mono pay-paypal"><a class="ln arrow" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ" target="_blank" rel="noopener">{t['give_link']}</a></div>
-        <div class="pix mono pay-pix">
-          <button type="button" class="ln" data-copy="00020126580014br.gov.bcb.pix01369e1497a0-9a23-4910-9937-f5cec7c85f4b5204000053039865802BR5915EDUARDO FREITAS6008CRICIUMA62070503***6304BCD9" data-done="{t['pix_done']}">{t['pix_copy']}</button><span class="dim" role="status"></span>
-          <p class="dim">{t['pix_key']} <code>9e1497a0-9a23-4910-9937-f5cec7c85f4b</code></p>
-        </div>
-      </div>
-      <div>
-        <div class="pay-switch mono" role="group" aria-label="{t['pay_group']}" hidden><button type="button" data-pay="pix">Pix</button><button type="button" data-pay="paypal">PayPal</button></div>
-        <a class="qr pay-paypal" href="https://www.paypal.com/donate/?hosted_button_id=N2T3FKPS2Z7DQ&amp;source=qr" target="_blank" rel="noopener">
-          <figure><img src="/assets/donate-qr.svg" width="132" height="132" alt="{t['give_alt']}"><figcaption class="mono dim">{t['give_qr']}</figcaption></figure>
-        </a>
-        <figure class="qr pay-pix"><img src="/assets/donate-pix.svg" width="132" height="132" alt="{t['pix_alt']}"><figcaption class="mono dim">{t['pix_qr']}</figcaption></figure>
-        <script>
-        // Pix has no web link, only a code: on a phone the way in is copying it into
-        // the bank app. Brazilian pages open on Pix, the rest on PayPal, unless the
-        // link asks for one with ?pay=pix or ?pay=paypal.
-        (function () {{
-          var box = document.currentScript.parentElement.parentElement, sw = box.querySelector(".pay-switch");
-          function pick(m) {{
-            box.dataset.pay = m;
-            sw.querySelectorAll("button").forEach(function (b) {{ b.setAttribute("aria-pressed", b.dataset.pay === m); }});
-          }}
-          sw.hidden = false;
-          sw.addEventListener("click", function (e) {{ if (e.target.dataset.pay) pick(e.target.dataset.pay); }});
-          var ask = /[?&]pay=(pix|paypal)\\b/.exec(location.search);
-          pick(ask ? ask[1] : "{t['pay_default']}");
-          var btn = box.querySelector("[data-copy]"), status = btn.nextElementSibling;
-          btn.addEventListener("click", function () {{
-            var done = function () {{ status.textContent = " " + btn.dataset.done; setTimeout(function () {{ status.textContent = ""; }}, 4000); }};
-            var select = function () {{ getSelection().selectAllChildren(box.querySelector(".pix code")); }};
-            navigator.clipboard ? navigator.clipboard.writeText(btn.dataset.copy).then(done, select) : select();
-          }});
-        }})();
-        </script>
-      </div>
-    </div>
-  </section>
 </main>
-<footer>
-  <div class="wrap hub">
-    <div class="mono dim">Lab</div>
-    <div>
-      <h2>{t['back_h']}</h2>
-      <div class="links mono"><a class="ln arrow" href="{lab}">{t['back']}</a><a class="ln" href="mailto:contact@eduardofrafre.com">contact@eduardofrafre.com</a></div>
-    </div>
-  </div>
-  <div class="wrap colophon mono dim"><p>{t['colophon']}</p><p>© 2026 Eduardo Freitas</p></div>
+<footer class="ft">
 </footer>
 </body>
 </html>
@@ -666,5 +672,5 @@ if __name__ == "__main__":
         shutil.copy(f, OUT / "assets" / "fonts" / f.name)
     (OUT / "index.html").write_text(page("en", d, counts, all_sites, len(insects["kept"])))
     (OUT / "pt-br" / "index.html").write_text(page("pt", d, counts, all_sites, len(insects["kept"])))
-    (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\n")
+    (OUT / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: https://hidden-lineages.lab.eduardofrafre.com/sitemap.xml\n")
     print(f"wrote site/: {counts}, {len(all_sites)} sites, {len(insects['kept'])} insect candidates")
