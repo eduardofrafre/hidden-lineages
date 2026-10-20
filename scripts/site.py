@@ -269,7 +269,7 @@ svg { display: block; max-width: 100%; height: auto; }
 .arrow::after { content: " ->"; font-family: var(--mono); font-size: .85em; }
 
 /* ── Masthead: the same on every family site ─────────────────────
-   The domain goes home, the crumbs say where you are, the three sites
+   The domain goes home, the crumbs say where you are, the family sites
    come first, then this page's sections, the language and the theme.
    On a phone the menu is one row under the domain. */
 .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px; padding-block: 22px; border-bottom: 1px solid var(--line); }
@@ -547,7 +547,7 @@ def page(lang, d, counts, all_sites, insect_candidates):
     sfx = "" if lang == "en" else "pt-br/"
     lab = "https://lab.eduardofrafre.com/" + sfx
     out = "".join(f'<a href="https://{h}.eduardofrafre.com/{sfx}"{' aria-current="true"' if h == "lab" else ""}>{n}</a>'
-                  for h, n in (("lab", "Lab"), ("tools", t["tools"]), ("studio", "Studio")))
+                  for h, n in (("lab", "Lab"), ("tools", t["tools"]), ("studio", "Studio"), ("art", "Art" if lang == "en" else "Arte")))
     sections = "\n".join(f'    <a href="#{i}">{n}</a>' for i, n in t["sections"])
     other_lang = "pt-BR" if lang == "en" else "en"
     langs = (f'<span aria-current="true">EN</span> / <a href="pt-br/" hreflang="pt-BR" lang="pt-BR" title="{t["other_title"]}">PT</a>'
