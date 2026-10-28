@@ -7,20 +7,6 @@
     "en": "Cloudflare Workers, static assets from site/",
     "pt": "Cloudflare Workers, assets estáticos de site/"
   },
-  "docs": {
-    "decisions": [],
-    "specs": [],
-    "diagrams": [],
-    "playbooks": [
-      "engines/science/playbooks/asap-species-delimitation.md",
-      "engines/science/playbooks/bold-v5-api.md",
-      "core/playbooks/pre-launch-security.md"
-    ]
-  },
-  "board": {
-    "file": "engines/science/initiatives/hidden-lineages.md",
-    "match": []
-  },
   "scripts": [
     {
       "path": "scripts/site.py",
@@ -68,19 +54,6 @@
       "breaks": {
         "en": "The live page keeps its last deploy",
         "pt": "A página no ar segue no último deploy"
-      }
-    },
-    {
-      "path": "core/tooling/site-family/footer.py",
-      "repo": "eduardofrafre/hive-mind-core",
-      "runs": "hand",
-      "what": {
-        "en": "Writes the shared footer (support block, QR codes, four columns) in English and pt-BR",
-        "pt": "Escreve o rodapé comum (apoio, QR codes, quatro colunas) em inglês e pt-BR"
-      },
-      "breaks": {
-        "en": "Footers drift apart between the family sites",
-        "pt": "Os rodapés divergem entre os sites da família"
       }
     }
   ]
