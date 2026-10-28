@@ -1,0 +1,60 @@
+{
+  "app": "Hidden Lineages",
+  "hosts": [
+    "hidden-lineages.lab.eduardofrafre.com"
+  ],
+  "hosting": {
+    "en": "Cloudflare Workers, static assets from site/",
+    "pt": "Cloudflare Workers, assets estáticos de site/"
+  },
+  "scripts": [
+    {
+      "path": "scripts/site.py",
+      "runs": "deploy",
+      "what": {
+        "en": "Builds the showcase page, English and pt-BR, from the same data as the candidate sheet",
+        "pt": "Monta a página, em inglês e pt-BR, a partir dos mesmos dados da planilha de candidatos"
+      },
+      "breaks": {
+        "en": "The page drifts from the analysis",
+        "pt": "A página se afasta da análise"
+      }
+    },
+    {
+      "path": "scripts/bold.py",
+      "runs": "hand",
+      "what": {
+        "en": "Pulls barcode records from the BOLD v5 API",
+        "pt": "Puxa registros de barcode da API v5 do BOLD"
+      },
+      "breaks": {
+        "en": "No new specimens",
+        "pt": "Sem espécimes novos"
+      }
+    },
+    {
+      "path": "scripts/build_asap.sh",
+      "runs": "hand",
+      "what": {
+        "en": "Prepares and runs ASAP species delimitation",
+        "pt": "Prepara e roda a delimitação de espécies ASAP"
+      },
+      "breaks": {
+        "en": "No delimitation support behind the candidates",
+        "pt": "Sem o suporte de delimitação por trás dos candidatos"
+      }
+    },
+    {
+      "command": "npx wrangler deploy",
+      "runs": "hand",
+      "what": {
+        "en": "Uploads site/ to hidden-lineages.lab.eduardofrafre.com",
+        "pt": "Sobe site/ para hidden-lineages.lab.eduardofrafre.com"
+      },
+      "breaks": {
+        "en": "The live page keeps its last deploy",
+        "pt": "A página no ar segue no último deploy"
+      }
+    }
+  ]
+}
